@@ -329,3 +329,19 @@ a#addAnotherCardLink:hover {
   background-color: rgba(131,140,145, 0.2);
   background-color: rgba(214,218,220, 0.5);
 }
+
+/*************** OVERLAY MODAL  ***************/
+
+/* Label Option */
+#overlay-modal {
+  position: absolute;
+  bottom: 0;
+}
+.label-tile {
+  border: none;
+  margin: 5px;
+  display: block;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+}

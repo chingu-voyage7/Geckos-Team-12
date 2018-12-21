@@ -278,3 +278,18 @@ function removeCard(inputField) {
   element.parentNode.removeChild(element);
   document.getElementById("addAnotherCardLink").style.display = "block";
 }
+
+// *************** OVERLAY MODAL ***************
+let overlayModal = {
+// *************** ADD MEMBER OPTION ***************
+  changeLabel: function(cardID) {
+    
+  }
+}
+
+// *************** ADD LABEL OPTION ***************
+
+
+// *************** ADD CHECKLIST OPTION ***************
+
+// *************** ADD DUE DATE OPTION ***************
