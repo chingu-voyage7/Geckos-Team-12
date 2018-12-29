@@ -1,9 +1,13 @@
 window.onload = function() {
   checkForBackground();
+  toggleAddListLinks();
 };
 
 function setEventListeners() {
-  document.getElementById('sample-card').addEventListener('click', function() { cardOptions.showOverlay(); });
+  document.getElementById('sample-card').addEventListener('click', (event) => { cardOptions.showOverlay(event); });
+  document.getElementById('sample-pen').addEventListener('click', (event) => {
+    event.stopPropagation();
+    cardOptions.showCardOptions(event); });
 }
 
 setEventListeners();
@@ -55,8 +59,6 @@ let menu = {
   },
   // Show or hide a specific page (page id passed as argument when function called from HTML)
   togglePage: function(id) {
-    // if (document.getElementById(headers.colors).classList.contains('element-invisible') === true || document.getElementById(headers.photos).classList.contains('element-invisible') === true) {
-    // }
     //hide main menu and all pages
     menu.toggleMainMenu();
     menu.hideAllPages();
@@ -143,6 +145,7 @@ document.addEventListener('submit', function(e) {
     //create pen icon
     const pen = document.createElement('a');
     pen.innerHTML = '<i class="fas fa-pen"></i>';
+    pen.addEventListener('click', function(){ cardOptions.showCardOptions(event);});
     cardItem.innerHTML = text;
     card.appendChild(cardItem)
     card.appendChild(pen);
@@ -152,7 +155,7 @@ document.addEventListener('submit', function(e) {
 
 let spans = document.getElementsByClassName("placeholder");
 //toggle between 'add a list' and 'add another list' links
-window.onload = function(){
+function toggleAddListLinks() {
    spans[1].style.display='none';
    document.forms[0].style.display='none';
 };
@@ -179,16 +182,24 @@ function removeCard(inputField) {
   document.getElementById("addAnotherCardLink").style.display = "block";
 }
 
-// *************** OVERLAY MODAL ***************
-// define array for label colors (cardOptions.changeLabel())
+// *************** CARD OPTIONS (small + modal) ***************
+// declare array for label colors (cardOptions.changeLabel())
 let labelArr = [];
 
 let cardOptions = {
   showOverlay: function() {
     document.getElementById('overlay-container').classList.toggle('element-invisible');
+    document.body.classList.add('ovleray-opacity');
   },
-// *************** ADD MEMBER OPTION ***************
+  showCardOptions: function(event) {
+    document.getElementById('card-options-container').classList.toggle('element-invisible');
+  },
+// *************** SHOW X OPTION ***************
+  showLabels: function() {
+    document.getElementById('labels-container').classList.toggle('element-invisible');
+  },
 
+// *************** ADD MEMBER OPTION ***************
 // *************** ADD/CHANGE LABEL ***************
   changeLabel: function(labelColor) {
     // define a sample card until card ids have been create

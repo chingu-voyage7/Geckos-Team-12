@@ -88,13 +88,30 @@
     </div>
   </div><!-- end of board-wrapper -->
 
-<!-- ************* OVERLAY MODAL / CARD OPTIONS  ************** -->
-<div id="sample-card">Sample Card</div>
-  <div class="element-invisible" id="overlay-container">
+<!-- ***********************************************************
+                        CARD OPTIONS
+************************************************************* -->
 
-    <input class="label-tile" style="background-color:rgb(0,121,191)" type="button" onclick="cardOptions.changeLabel('rgb(0,121,191)')" />
-    <input class="label-tile" style="background-color:rgb(210,144,52)" type="button" onclick="cardOptions.changeLabel('rgb(210,144,52)')" />
-    <input class="label-tile" style="background-color:rgb(81,152,57)" type="button" onclick="cardOptions.changeLabel('rgb(81,152,57)')" />
+<!-- ******************* SMALL OPTIONS MENU ******************* -->
+<div id="card-options-container" class="element-invisible">
+  <ul class="card-options-ul">
+    <li><a href="#" onclick="cardOptions.showLabels()">Edit Labels</a></li>
+    <li><a href="#">Change Members</a></li>
+    <li><a href="#">Move</a></li>
+    <li><a href="#">Copy</a></li>
+    <li><a href="#">Change Due Date</a></li>
+    <li><a href="#">Archive</a></li>
+  </ul>
+</div>
+<!-- ******************* LABELS ******************** -->
+<div id="labels-container" class="element-invisible">
+  <input class="label-tile" style="background-color:rgb(0,121,191)" type="button" onclick="cardOptions.changeLabel('rgb(0,121,191)')" />
+  <input class="label-tile" style="background-color:rgb(210,144,52)" type="button" onclick="cardOptions.changeLabel('rgb(210,144,52)')" />
+  <input class="label-tile" style="background-color:rgb(81,152,57)" type="button" onclick="cardOptions.changeLabel('rgb(81,152,57)')" />
+</div>
+<!-- ******************* OVERLAY MODAL ******************** -->
+<div id="sample-card">Sample Card<a><i id="sample-pen" class="fas fa-pen"></i></a></div>
+  <div class="element-invisible" id="overlay-container">
   </div>
 
   <!-- Link to JavaScript -->

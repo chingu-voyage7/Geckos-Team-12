@@ -5,6 +5,10 @@
   width: 20%;
 }
 
+#sample-pen {
+  z-index: 50;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-family: 'Open Sans', sans-serif;
@@ -297,13 +301,54 @@ a#show-list-form {
   background-color: rgba(131,140,145, 0.2);
   background-color: rgba(214,218,220, 0.5);
 }
+/*************** CARD OPTIONS ***************/
+#card-options-container {
 
-/*************** OVERLAY MODAL  ***************/
+}
 
+.card-options-ul {
+  padding: 0;
+}
+
+.card-options-ul li {
+  list-style: none;
+  margin: 7px 0;
+}
+
+.card-options-ul a {
+  background-color: black;
+  opacity: 0.8;
+  color: white;
+  padding: 3px 7px;
+  border-radius: 5px;
+  font-size: inherit;
+}
+
+/* Label container */
+#labels-container {
+  background-color: white;
+  width: 200px;
+  height: 500px;
+  z-index: 100;
+  position: fixed;
+}
+
+
+/*************** OVERLAY MODAL ***************/
 /* Label Option */
-#overlay-modal {
+#overlay-container {
+  border: 2px solid black;
   position: absolute;
-  bottom: 0;
+  margin: 20px auto;
+  height: 70%;
+  width: 70%;
+  left: 15%;
+  bottom: 15%;
+  z-index: 100;
+}
+
+.overlay-opacity {
+  opacity: 0.3;
 }
 
 .label-tile {
