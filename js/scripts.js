@@ -150,7 +150,7 @@ document.addEventListener('submit', function(e) {
   }
 });
 
-spans = document.getElementsByClassName("placeholder");
+let spans = document.getElementsByClassName("placeholder");
 //toggle between 'add a list' and 'add another list' links
 window.onload = function(){
    spans[1].style.display='none';
