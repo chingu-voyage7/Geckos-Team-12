@@ -75,7 +75,7 @@
     <div class="listTextAreaContainer">
       <div id="listTextArea"></div>
       <div id="list-link-container">
-        <a id="addListLink" href="#" onclick="displayListInputField(); hideButton('addListLink');""><i class="fas fa-plus"></i> Add a list</a>
+        <a id="addListLink" href="#" onclick="displayListInputField(); hideButton('addListLink');"><i class="fas fa-plus"></i> Add a list</a>
         <a id="addAnotherListLink" href="#" onclick="displayListInputField()"><i class="fas fa-plus"></i> Add another list</a>
       </div><!-- end of list-link-container -->
     </div>
@@ -114,10 +114,13 @@
 
   </div><!-- end of listWrapper -->
 
-  <div id="overlay-modal">
-    <input class="label-tile" style="background-color:rgb(0,121,191)" type="button" onclick="overlayModal.changeLabel('rgb(0,121,191)')" />
-    <input class="label-tile" style="background-color:rgb(210,144,52)" type="button" onclick="overlayModal.changeLabel('rgb(210,144,52)')" />
-    <input class="label-tile" style="background-color:rgb(81,152,57)" type="button" onclick="overlayModal.changeLabel('rgb(81,152,57)')" />
+<!-- ************* OVERLAY MODAL / CARD OPTIONS  ************** -->
+<div id="sample-card">Sample Card</div>
+  <div class="element-invisible" id="overlay-container">
+
+    <input class="label-tile" style="background-color:rgb(0,121,191)" type="button" onclick="cardOptions.changeLabel('rgb(0,121,191)')" />
+    <input class="label-tile" style="background-color:rgb(210,144,52)" type="button" onclick="cardOptions.changeLabel('rgb(210,144,52)')" />
+    <input class="label-tile" style="background-color:rgb(81,152,57)" type="button" onclick="cardOptions.changeLabel('rgb(81,152,57)')" />
   </div>
   <!-- Link to JavaScript -->
   <script src="js/scripts.js"></script>

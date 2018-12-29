@@ -1,6 +1,12 @@
 window.onload = function() {
   checkForBackground();
 };
+
+function setEventListeners() {
+  document.getElementById('sample-card').addEventListener('click', function() { cardOptions.showOverlay(); });
+}
+
+setEventListeners();
 // *************** SLIDEOUT MENU SCRIPT ***************
 //Set background + background tile in menu to previous background setting
 function checkForBackground() {
@@ -280,16 +286,44 @@ function removeCard(inputField) {
 }
 
 // *************** OVERLAY MODAL ***************
-let overlayModal = {
+// define array for label colors (cardOptions.changeLabel())
+let labelArr = [];
+
+let cardOptions = {
+  showOverlay: function() {
+    document.getElementById('overlay-container').classList.toggle('element-invisible');
+  },
 // *************** ADD MEMBER OPTION ***************
-  changeLabel: function(cardID) {
-    
-  }
-}
 
-// *************** ADD LABEL OPTION ***************
-
+// *************** ADD/CHANGE LABEL ***************
+  changeLabel: function(labelColor) {
+    // define a sample card until card ids have been create
+    // next step: identify card that was clicked, and run function on that card
+    let card = document.getElementById('sample-card');
+      //check if color is already displayed (i.e. in the array)
+      if (labelArr.includes(labelColor) === true) {
+        card.removeChild(document.getElementById(labelColor));
+        labelArr.splice(labelArr.indexOf(labelColor),1);
+      }
+      // if color not already displayed, dispaly it
+      else {
+        labelArr.push(labelColor);
+        //create new HTML element to display color label
+        let label = document.createElement('div');
+        label.classList.add('card-label-tile');
+        label.id = labelColor;
+        label.style.backgroundColor = labelColor;
+        // add new element (color label) to card
+        card.appendChild(label);
+      }
+  },
 
 // *************** ADD CHECKLIST OPTION ***************
+  addChecklist: function() {
 
+  },
 // *************** ADD DUE DATE OPTION ***************
+  addDueDate: function() {
+
+  }
+}
