@@ -297,13 +297,17 @@ a#show-list-form {
   height: 17px;
 }
 
+a#show-list-form:hover {
+  background-color: rgba(1, 1, 1, 0.4);
+}
+
 .card-link-container a:hover {
   background-color: rgba(131,140,145, 0.2);
   background-color: rgba(214,218,220, 0.5);
 }
+
 /*************** CARD OPTIONS ***************/
 #card-options-container {
-
 }
 
 .card-options-ul {
@@ -330,7 +334,23 @@ a#show-list-form {
   width: 200px;
   height: 500px;
   z-index: 100;
-  position: fixed;
+  /* position: fixed; */
+}
+
+.label-tile {
+  display: block;
+  width: 180px;
+  height: 30px;
+  margin: 5px auto;
+  border-radius: 5px;
+}
+
+.card-label-tile {
+  margin: 5px;
+  display: block;
+  width: 60px;
+  height: 10px;
+  border-radius: 10px;
 }
 
 
@@ -349,23 +369,4 @@ a#show-list-form {
 
 .overlay-opacity {
   opacity: 0.3;
-}
-
-.label-tile {
-  margin: 5px;
-  display: block;
-  width: 150px;
-  height: 30px;
-  border-radius: 5px;
-}
-
-.card-label-tile {
-  margin: 5px;
-  display: block;
-  width: 60px;
-  height: 10px;
-  border-radius: 10px;
-}
-a#show-list-form:hover {
-  background-color: rgba(1, 1, 1, 0.4);
 }
