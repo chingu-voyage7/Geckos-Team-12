@@ -91,193 +91,87 @@ let menu = {
   }
 };
 
-// *************** ADD LIST **************
+// *************** ADD LISTS ***************
 
-// Creates a title textarea
-function displayTitle() {
-  var listTitle = document.getElementById("listTitle");
+// add new list submit eventlistener
+document.getElementById("add-list-form").addEventListener("submit", addList);
 
-  var titleTextArea = document.createElement("textarea");
-  var listTitleExist = true;
-  if (titleTextArea === null) {
-    titleTextArea = document.createElement("textarea");
-    titleTextArea.id = "listTitleArea";
-  // adds the newly created element to the DOM
-    listTitleExist = false;
-  }
-  titleTextArea.setAttribute("type", "text");
-  titleTextArea.setAttribute("id", "textAreaTitle2");
-  titleTextArea.setAttribute("overflow", "break-word");
-  titleTextArea.setAttribute("placeholder", "Enter list title...");
-  listTitle.appendChild(titleTextArea);
-  var titleTaker = document.getElementById("textAreaTitle").value;
-  titleTextArea.innerHTML = titleTaker;
-  document.getElementById("textAreaTitle").value = "";
+function addList(e) {
+  e.preventDefault();
+  const input = document.getElementById("list-name");
+  const name = input.value;
+  input.value = '';
+  if ('' == name) {
+    return;
   }
 
-function displayListInputField() {
-  //checks to see if there is a div#listTextArea in our DOM (null means we do not have div#inputField), and creates it if its not there
-  var textAreaHolder = document.getElementById("listTextArea");
-  var listTextAreaExist = true;
-  if (textAreaHolder === null) {
-    textAreaHolder = document.createElement("listTextArea");
-    textAreaHolder.id = "listTextArea";
-    listTextAreaExist = false;
-  }
+  const list = document.createElement('div');
+  list.setAttribute('class', 'list');
+  list.innerHTML =
+    `<div class="list-heading" >
+      <h3 contenteditable="true">` + name + `</h3>
+    <div class= "ellipsis"><a href="#">&#8230;</a></div>
+    </div>
+      <div>
+        <form class="add-item-form">
+          <textarea placeholder="Enter a title for this card..."></textarea>
+          <div>
+          <input type="submit" value="Add Card">
+          <input type="button" value="&#88;">
+          <div class= "ellipsis"><a href="#">&#8230;</a></div>
+          </div>
+        </form>
+      </div>`;
 
-  // Creates a textarea for adding lists
-  var textAreaElement = document.createElement("textarea");
-  textAreaElement.setAttribute("type", "text");
-  textAreaElement.setAttribute("id", "textAreaTitle");
-  textAreaElement.setAttribute("overflow", "break-word");
-  textAreaElement.setAttribute("placeholder", "Enter list title...");
-  textAreaHolder.appendChild(textAreaElement);
+  document.getElementById("list-container").appendChild(list);
+}
 
-  // Creates a "Add a List" button. It adds the textarea when clicked
-  var button = document.createElement("button");
-  button.innerHTML = "Add List";
-  button.setAttribute("id", "createNewList");
-  textAreaHolder.appendChild(button);
-
-  button.addEventListener("click", function() {
-    var titleTaker = document.getElementById("textAreaTitle").value;
-    if(titleTaker == ""){
-      titleTaker = false;
-    }else{
-      showTitleAndCardSection(); //Displays the List Container
-      displayTitle(); // Adds a title
-      hideButton('textAreaTitle');//hide Textarea
-      hideButton('createNewList');//hide 'Add a List' button
-      hideButton('createNewCloseBtn');//hide close 'x' button
-      // createNewListTextArea();
-      // duplicate();
+// add new item submit eventlistener
+document.addEventListener('submit', function(e) {
+  if (e.target.matches('.add-item-form')) {
+    e.preventDefault();
+    const textarea = e.target.getElementsByTagName('textarea')[0];
+    const text = textarea.value;
+    textarea.value = '';
+    if ('' == text) {
+      return;
     }
-  });
-
-  // Creates a delete "x" button and set attributes to it
-  var closeButton = document.createElement("closeButton");
-  closeButton.innerHTML = '<i class="fas fa-times"></i>';
-  closeButton.setAttribute("id", "createNewCloseBtn");
-  textAreaHolder.appendChild(closeButton);
-
-  //Checks to see if a div#listTextArea exists and creates one if it does not exist and appends it to its parentNode
-  if (!listTextAreaExist) {
-    document.querySelector(".listTextAreaContainer").appendChild(textAreaHolder);
+    //create card
+    const cardItem = document.createElement('p');
+    const card = document.createElement('div');
+    card.setAttribute('class', 'card');
+    //create pen icon
+    const pen = document.createElement('a');
+    pen.innerHTML = '<i class="fas fa-pen"></i>';
+    cardItem.innerHTML = text;
+    card.appendChild(cardItem)
+    card.appendChild(pen);
+    e.target.parentElement.prepend(card);
   }
-  // adds an event listener which will call the removeList() function to delete the div#listTextAreaExist when clicked
-  closeButton.addEventListener("click", function() {
-    removeList();
-  });
-}
+});
 
-//Shows the Title and Add Cards sections
-function showTitleAndCardSection(){
-  var showCardSection = document.getElementsByClassName("listContainer");
-  for (var i=0;i<showCardSection.length;i+=1){
-    showCardSection [i].style.display = 'block';
+spans = document.getElementsByClassName("placeholder");
+//toggle between 'add a list' and 'add another list' links
+window.onload = function(){
+   spans[1].style.display='none';
+   document.forms[0].style.display='none';
+};
+
+let clicked = 0;
+//toggle between links and 'add-list-form'
+function toggleDiv(divId1, divId2){
+  clicked++;
+  if(document.getElementById( divId1 ).style.display == 'block'){
+    document.getElementById( divId1 ).style.display = 'none';
+    document.getElementById( divId2 ).style.display = 'block';
+  }else{
+    document.getElementById( divId2 ).style.display = 'none';
+    document.getElementById( divId1 ).style.display = 'block'
+  }if(clicked > 0) {
+    spans[0].style.display='none';
+    spans[1].style.display='block';
   }
 }
-
-function removeList(listTextArea) {
-  var element = document.getElementById("listTextArea");
-  var emptyList = document.getElementById("textAreaTitle").value ==="";
-  if (emptyList) {
-    document.getElementById("addListLink").style.display = "block";
-  }
-  // else{
-  //   document.getElementById("addAnotherListLink").style.display = "block";
-  // }
-  element.parentNode.removeChild(element);
-}
-
-function createNewListTextArea() {
-  var listWrapper = document.getElementById("listWrapper");
-    var newListContainerDiv = document.createElement("div");
-    newListContainerDiv.setAttribute("id", "newListDiv");
-    listWrapper.appendChild(newListContainerDiv);
-}
-
-
-
-// function duplicate() {
-//   var i=0;
-//   var original = document.getElementById("listTextArea");
-//   var clone = original.cloneNode(true);
-//   clone.id = "listTextArea" + ++i;
-//   original.parentNode.appendChild(clone);
-// }
-
-// *************** ADD - DELETE - EDIT CARDS  **************
-
-/*** Creates an inputField which contains a textarea, a 'Add a Card' button and a delete 'X' button.***/
-function displayInputField() {
-  //checks to see if there is a div#inputField in our DOM (null means we do not have div#inputField), and creates it if its not there
-  var a = document.getElementById("inputField");
-  var inputFieldExist = true;
-  if (a === null) {
-  a = document.createElement("inputField");
-  a.id = "inputField";
-  // adds the newly created element to the DOM
-  inputFieldExist = false;
-  }
-
-  // Creates a textarea for input
-  var b = document.createElement("textarea");
-  b.setAttribute("type", "text");
-  b.setAttribute("id", "userInput");
-  b.setAttribute("overflow", "break-word");
-  b.setAttribute("placeholder", "Enter a title for this card...");
-  a.appendChild(b);
-
-  // Creates a "Add a Card" button. It adds the textarea when clicked
-  var button = document.createElement("button");
-  button.innerHTML = "Add Card";
-  button.setAttribute("id", "createNewCard");
-  a.appendChild(button);
-
-  //Call the CreateCard() function to create a new card when the 'Add a Card' button is clicked.
-  button.addEventListener("click", function() {
-    //Checks to see if the textarea is empty. If it is a card will not be created when the user clicks the 'Add a Card' button.
-    if (document.getElementById("userInput").value ==="") {
-      return false;
-    }else{
-      createACard();
-    }
-  });
-
-  // Creates a delete "x" button and set attributes to it
-  var closeButton = document.createElement("closeButton");
-  closeButton.innerHTML = '<i class="fas fa-times"></i>';
-  closeButton.setAttribute("id", "createNewCloseBtn");
-  a.appendChild(closeButton);
-
-  //Checks to see if a div#inputField exists and creates one if it does not exist and appends it to its parentNode
-  if (!inputFieldExist) {
-    document.querySelector(".cardContainer").appendChild(a);
-  }
-  // adds an event listener which will call the removeCard () function to delete the div#inputField when clicked
-  closeButton.addEventListener("click", function() {
-    removeCard();
-  });
-}
-
-//Hides the 'Add a Card' and 'Add another card' links when they are clicked.
-function hideButton(x) {
-  document.getElementById(x).style.display = "none"; // hide the button
-}
-
-//Takes the input from div#inputField and creates a new 'titled' card
-function createACard() {
-  var createCardElem = document.getElementById("createCard");
-  var createNewCard = document.createElement("div");
-  createNewCard.setAttribute("id", "newCard");
-  createCardElem.appendChild(createNewCard);
-  var inputTaker = document.getElementById("userInput").value;
-  //appending the user's input to the new card
-  createNewCard.innerHTML = inputTaker;
-  document.getElementById("userInput").value = ""; //empties the text-area after 'Add a Card' button is clicked.
-}
-
 //removes the inputField and buttons from the document and shows the 'addAnotherCardLink' after it has been clicked.
 function removeCard(inputField) {
   var element = document.getElementById("inputField");

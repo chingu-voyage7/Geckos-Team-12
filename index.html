@@ -69,50 +69,24 @@
     </div> <!-- menu-pages -->
   </div> <!-- menu-slideout -->
 
-  <!-- *************** WRAPPER  ************** -->
-
-    <!-- *************** ADD LIST  ************** -->
-    <div class="listTextAreaContainer">
-      <div id="listTextArea"></div>
-      <div id="list-link-container">
-        <a id="addListLink" href="#" onclick="displayListInputField(); hideButton('addListLink');"><i class="fas fa-plus"></i> Add a list</a>
-        <a id="addAnotherListLink" href="#" onclick="displayListInputField()"><i class="fas fa-plus"></i> Add another list</a>
-      </div><!-- end of list-link-container -->
+  <!-- *************** ADD LISTS *************** -->
+  <div class="board-wrapper">
+    <div id="workBoard" class="work-board">
+      <div id="list-container"></div>
+      <a href="#" id="show-list-form" onclick="toggleDiv('add-list-form', 'show-list-form');">
+      <span class="placeholder"><i class="fas fa-plus"></i> Add a list</span>
+      <span class="placeholder"><i class="fas fa-plus"></i> Add another list</span>
+      </a>
+      <form id="add-list-form">
+        <div class="form-inner-container">
+        <input type="text" id="list-name" placeholder="Enter list title..." autocomplete="off">
+        <input type="submit" value="Add List">
+        <!-- <input type="button" onclick="toggleDiv('add-list-form', 'show-list-form');"><i class="fas fa-times"></i></input> -->
+        <input type="button" onclick="toggleDiv('add-list-form', 'show-list-form')" value="&#88;">
+      </div>
+      </form>
     </div>
-    <div id="listWrapper">
-    <!-- List Container -->
-    <div class="listContainer">
-      <div class="listContent">
-        <div class="listHeaderContainer">
-          <div id="listTitle">
-            <!--Temporary header-->
-            <!-- <h2>General</h2> -->
-          </div>
-          <div id="ellipsisContainer">
-            <a href="#"><i class="fas fa-ellipsis-h"></i></a>
-          </div><!--The three dots are called ellipsis-->
-        </div>
-
-        <!-- *************** ADD - DELETE - EDIT CARDS  ************** -->
-
-        <div class="cardContainer">
-          <!-- Create card here -->
-          <div id="createCard"></div>
-
-          <!-- Create text-area and 'Add a Card' and close 'X' buttons here -->
-          <div id="inputField"></div>
-        </div>
-        <div class="card-link-container">
-          <!--AddCardLink - when clicked it adds an input field, and the buttons for adding a card and closing the input field. -->
-          <a id="addCardLink" href="#" onclick="displayInputField(); hideButton('addCardLink');"><i class="fas fa-plus"></i> Add a Card</a>
-
-          <!--AddAnotherCardLink - when clicked should perform the same as AddCardLink except that it is hidden at first and is shown only when the close button is clicked. -->
-          <a id="addAnotherCardLink" href="#" onclick="displayInputField(); hideButton('addAnotherCardLink');"><i class="fas fa-plus"></i> Add another Card</a>
-        </div><!-- end of card-link-container -->
-      </div><!-- end of list-content -->
-    </div><!-- end of List Container -->
-
-  </div><!-- end of listWrapper -->
+  </div><!-- end of board-wrapper -->
 
 <!-- ************* OVERLAY MODAL / CARD OPTIONS  ************** -->
 <div id="sample-card">Sample Card</div>
@@ -122,6 +96,7 @@
     <input class="label-tile" style="background-color:rgb(210,144,52)" type="button" onclick="cardOptions.changeLabel('rgb(210,144,52)')" />
     <input class="label-tile" style="background-color:rgb(81,152,57)" type="button" onclick="cardOptions.changeLabel('rgb(81,152,57)')" />
   </div>
+
   <!-- Link to JavaScript -->
   <script src="js/scripts.js"></script>
 </body>
