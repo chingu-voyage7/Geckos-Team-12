@@ -192,11 +192,35 @@ let cardOptions = {
     document.body.classList.add('ovleray-opacity');
   },
   showCardOptions: function(event) {
-    document.getElementById('card-options-container').classList.toggle('element-invisible');
+    let target = event.target;
+    let getDiv = function (elem, divClass) {
+      for ( ; elem && elem !== document; elem = elem.parentNode ) {
+        if (elem.classList.contains(divClass)) {
+          return elem;
+  	   }
+      }
+      return null;
+    };
+    // Get parent elements with 'list' and 'card' class names
+    let list = getDiv(target, 'list');
+    let card = getDiv(target, 'card');
+    // Get position of list and card
+    let listPosition = list.getBoundingClientRect();
+    let cardPosition = card.getBoundingClientRect();
+    let cardOptionsContainer = document.getElementById('card-options-container');
+    cardOptionsContainer.classList.toggle('element-invisible');
+    // Set card options container to be flush with right edge of list
+    cardOptionsContainer.style.left = listPosition.left + list.offsetWidth + "px";
+    // Set card options container to be flush with top of card
+    cardOptionsContainer.style.top = cardPosition.bottom - card.offsetHeight -7 + "px";
+
   },
 // *************** SHOW X OPTION ***************
-  showLabels: function() {
-    document.getElementById('labels-container').classList.toggle('element-invisible');
+  showLabels: function(event) {
+    let labelsContainer = document.getElementById('labels-container');
+    labelsContainer.classList.toggle('element-invisible');
+    console.log(event.target.getBoundingClientRect().left);
+    // labelsContainer.style.left = event.target.getBoundingClientRect().left;
   },
 
 // *************** ADD MEMBER OPTION ***************

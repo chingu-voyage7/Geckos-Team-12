@@ -95,7 +95,7 @@
 <!-- ******************* SMALL OPTIONS MENU ******************* -->
 <div id="card-options-container" class="element-invisible">
   <ul class="card-options-ul">
-    <li><a href="#" onclick="cardOptions.showLabels()">Edit Labels</a></li>
+    <li><a href="#" onclick="cardOptions.showLabels(event)">Edit Labels</a></li>
     <li><a href="#">Change Members</a></li>
     <li><a href="#">Move</a></li>
     <li><a href="#">Copy</a></li>
@@ -110,9 +110,11 @@
   <input class="label-tile" style="background-color:rgb(81,152,57)" type="button" onclick="cardOptions.changeLabel('rgb(81,152,57)')" />
 </div>
 <!-- ******************* OVERLAY MODAL ******************** -->
-<div id="sample-card">Sample Card<a><i id="sample-pen" class="fas fa-pen"></i></a></div>
-  <div class="element-invisible" id="overlay-container">
-  </div>
+<div class="list">
+  <div id="sample-card" class="card">Sample Card<a><i id="sample-pen" class="fas fa-pen"></i></a></div>
+</div>
+<div class="element-invisible" id="overlay-container"></div>
+
 
   <!-- Link to JavaScript -->
   <script src="js/scripts.js"></script>
