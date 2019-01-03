@@ -105,14 +105,14 @@
 </div>
 <!-- ******************* LABELS ******************** -->
 <div id="labels-container" class="element-invisible">
-  <input class="label-tile" style="background-color:rgb(0,121,191)" type="button" onclick="cardOptions.changeLabel('rgb(0,121,191)')" />
-  <input class="label-tile" style="background-color:rgb(210,144,52)" type="button" onclick="cardOptions.changeLabel('rgb(210,144,52)')" />
-  <input class="label-tile" style="background-color:rgb(81,152,57)" type="button" onclick="cardOptions.changeLabel('rgb(81,152,57)')" />
+  <input class="label-tile" style="background-color:rgb(0,121,191)" type="button" onclick="cardOptions.changeLabel(event, 'rgb(0,121,191)')" />
+  <input class="label-tile" style="background-color:rgb(210,144,52)" type="button" onclick="cardOptions.changeLabel(event, 'rgb(210,144,52)')" />
+  <input class="label-tile" style="background-color:rgb(81,152,57)" type="button" onclick="cardOptions.changeLabel(event, 'rgb(81,152,57)')" />
 </div>
 <!-- ******************* OVERLAY MODAL ******************** -->
-<div class="list">
+<!-- <div class="list">
   <div id="sample-card" class="card">Sample Card<a><i id="sample-pen" class="fas fa-pen"></i></a></div>
-</div>
+</div> -->
 <div class="element-invisible" id="overlay-container"></div>
 
 

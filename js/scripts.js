@@ -10,7 +10,7 @@ function setEventListeners() {
     cardOptions.showCardOptions(event); });
 }
 
-setEventListeners();
+// setEventListeners();
 // *************** SLIDEOUT MENU SCRIPT ***************
 //Set background + background tile in menu to previous background setting
 function checkForBackground() {
@@ -145,7 +145,10 @@ document.addEventListener('submit', function(e) {
     //create pen icon
     const pen = document.createElement('a');
     pen.innerHTML = '<i class="fas fa-pen"></i>';
-    pen.addEventListener('click', function(){ cardOptions.showCardOptions(event);});
+    pen.addEventListener('click', function(event){
+      cardOptions.setCurrentCard(event);
+      cardOptions.showCardOptions(event);
+    });
     cardItem.innerHTML = text;
     card.appendChild(cardItem)
     card.appendChild(pen);
@@ -187,23 +190,26 @@ function removeCard(inputField) {
 let labelArr = [];
 
 let cardOptions = {
+  setCurrentCard: function(pen) {
+    this.currentCard = this.getDiv(pen.target, 'card');
+  },
+  getDiv: function (elem, divClass) {
+    for ( ; elem && elem !== document; elem = elem.parentNode ) {
+      if (elem.classList.contains(divClass)) {
+        return elem;
+     }
+    }
+    return null;
+  },
   showOverlay: function() {
     document.getElementById('overlay-container').classList.toggle('element-invisible');
     document.body.classList.add('ovleray-opacity');
   },
   showCardOptions: function(event) {
     let target = event.target;
-    let getDiv = function (elem, divClass) {
-      for ( ; elem && elem !== document; elem = elem.parentNode ) {
-        if (elem.classList.contains(divClass)) {
-          return elem;
-  	   }
-      }
-      return null;
-    };
     // Get parent elements with 'list' and 'card' class names
-    let list = getDiv(target, 'list');
-    let card = getDiv(target, 'card');
+    let list = cardOptions.getDiv(target, 'list');
+    let card = cardOptions.getDiv(target, 'card');
     // Get position of list and card
     let listPosition = list.getBoundingClientRect();
     let cardPosition = card.getBoundingClientRect();
@@ -219,16 +225,13 @@ let cardOptions = {
   showLabels: function(event) {
     let labelsContainer = document.getElementById('labels-container');
     labelsContainer.classList.toggle('element-invisible');
-    console.log(event.target.getBoundingClientRect().left);
     // labelsContainer.style.left = event.target.getBoundingClientRect().left;
   },
 
 // *************** ADD MEMBER OPTION ***************
 // *************** ADD/CHANGE LABEL ***************
-  changeLabel: function(labelColor) {
-    // define a sample card until card ids have been create
-    // next step: identify card that was clicked, and run function on that card
-    let card = document.getElementById('sample-card');
+  changeLabel: function(event, labelColor) {
+    let card = this.currentCard;
       //check if color is already displayed (i.e. in the array)
       if (labelArr.includes(labelColor) === true) {
         card.removeChild(document.getElementById(labelColor));
