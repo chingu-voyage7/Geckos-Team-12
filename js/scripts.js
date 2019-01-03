@@ -188,8 +188,8 @@ function removeCard(inputField) {
 // *************** CARD OPTIONS (small + modal) ***************
 // declare array for label colors (cardOptions.changeLabel())
 let labelArr = [];
-
 let cardOptions = {
+  currentCard: null,
   setCurrentCard: function(pen) {
     this.currentCard = this.getDiv(pen.target, 'card');
   },
@@ -215,6 +215,10 @@ let cardOptions = {
     let cardPosition = card.getBoundingClientRect();
     let cardOptionsContainer = document.getElementById('card-options-container');
     cardOptionsContainer.classList.toggle('element-invisible');
+    let labelsContainer = document.getElementById('labels-container');
+    if (!labelsContainer.classList.contains('element-invisible')) {
+      labelsContainer.classList.toggle('element-invisible');
+    }
     // Set card options container to be flush with right edge of list
     cardOptionsContainer.style.left = listPosition.left + list.offsetWidth + "px";
     // Set card options container to be flush with top of card
