@@ -235,23 +235,24 @@ let cardOptions = {
 // *************** ADD MEMBER OPTION ***************
 // *************** ADD/CHANGE LABEL ***************
   changeLabel: function(event, labelColor) {
+    // NEXT STEP: Must access each unique card with a unique ID. Then, can set an individual labelArr for each card.
     let card = this.currentCard;
       //check if color is already displayed (i.e. in the array)
-      if (labelArr.includes(labelColor) === true) {
-        card.removeChild(document.getElementById(labelColor));
-        labelArr.splice(labelArr.indexOf(labelColor),1);
-      }
+    let currentLabels = card.getElementsByClassName('card-label-tile');
+    if (labelColor in currentLabels) {
+      card.removeChild(document.getElementById(labelColor));
+      // labelArr.splice(this.card.labelArr.indexOf(labelColor),1);
+    }
       // if color not already displayed, dispaly it
-      else {
-        labelArr.push(labelColor);
-        //create new HTML element to display color label
-        let label = document.createElement('div');
-        label.classList.add('card-label-tile');
-        label.id = labelColor;
-        label.style.backgroundColor = labelColor;
-        // add new element (color label) to card
-        card.appendChild(label);
-      }
+    else {
+      //create new HTML element to display color label
+      let label = document.createElement('div');
+      label.classList.add('card-label-tile');
+      label.id = labelColor;
+      label.style.backgroundColor = labelColor;
+      // add new element (color label) to card
+      card.appendChild(label);
+    }
   },
 
 // *************** ADD CHECKLIST OPTION ***************
