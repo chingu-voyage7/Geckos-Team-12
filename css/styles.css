@@ -1,7 +1,6 @@
 
 body {
-  font-family: 'Roboto', sans-serif;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: rgb(12,57,83);
   background: rgb(0, 121, 191);
   margin: 0;
@@ -43,11 +42,11 @@ nav div div .fas, nav div div .fab, nav div div .far {
   margin-right: 4px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 4px;
-  padding: 5px 7px;
+  padding: 7px 7px;
 }
 
 .top-nav-group-3 div {
-  padding: 5px 9px;
+  padding: 10px 9px 0px 9px;
 }
 
 .top-nav-group-1 div:hover, .top-nav-group-3 div:hover  {
@@ -92,8 +91,7 @@ div.logo a .fa-trello{
     color: rgb(255, 255, 255);
   }
   
-
-.search {
+div.search {
   width: 165px;
   text-align: right;
 }
@@ -104,7 +102,9 @@ div.search:hover {
 
 div.profile {
   background-color: transparent;
+  margin-right: -8px;
   margin-left: -10px;
+  margin-top: -8px;
 }
 
 div.profile:hover {
