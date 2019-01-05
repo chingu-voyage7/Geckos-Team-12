@@ -4,14 +4,124 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: rgb(12,57,83);
   background: rgb(0, 121, 191);
+  margin: 0;
 }
 
 /*************** NAV BAR ***************/
-nav {
+
+nav.top-nav {
+  margin-top: 0;
+  margin: 0;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  height: 40px;
+  background-color: rgba(1, 1, 1, 0.3);
 }
 
+nav div div .fas, nav div div .fab, nav div div .far {
+  color: rgb(255, 255, 255);
+  /* font-size: 18px; */
+}
+
+.top-nav-group-1, .top-nav-group-2, .top-nav-group-3 {
+  display: flex;
+  flex-direction: row;
+  padding: 3px;
+}
+
+.top-nav-group-2 {
+  margin-left: -150px;
+}
+
+.top-nav-group-1 a, .top-nav-group-2 a, .top-nav-group-3 a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.top-nav-group-1 div, .top-nav-group-3 div {
+  margin-right: 4px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 5px 7px;
+}
+
+.top-nav-group-3 div {
+  padding: 5px 9px;
+}
+
+.top-nav-group-1 div:hover, .top-nav-group-3 div:hover  {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* .home-icon, .boards, .search {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 5px 8px;;
+} */
+
+.home-icon {
+  padding: 4px 7px;;
+}
+
+.boards .fab  {
+  /* width: 200px; */
+  font-size: 18px;
+}
+
+.boards a p, .logo a p{
+  display: inline;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+div.logo a .fa-trello{
+  font-size: 22px;
+  color: rgba(255, 255, 255,0.3)
+}
+
+.logo a p {
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Rock Salt', cursive;
+  font-family: 'Homemade Apple', cursive;
+  font-size: 20px;
+  color: rgba(255, 255, 255,0.3)
+  }
+
+ div.logo a .fa-trello:hover, div.logo a p:hover {
+    color: rgb(255, 255, 255);
+  }
+  
+
+.search {
+  width: 165px;
+  text-align: right;
+}
+
+div.search:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+div.profile {
+  background-color: transparent;
+  margin-left: -10px;
+}
+
+div.profile:hover {
+  background-color: transparent;
+}
+  
+div.bell {
+  background-color: rgb(235,90,70);
+}
+
+div.bell:hover {
+  background-color: rgb(207,81,61);
+}
+
+.fa-user-circle {
+font-size: 30px;
+}
 
 /*************** SLIDEOUT MENU STYLES ***************/
 #menu-container {
