@@ -221,15 +221,20 @@ font-size: 25px;
   padding: 0 7px;
   margin: 9px 0 6px 0;
   border-radius: 4px;
+  /* margin-right: 500px; */
 }
 
 /*  NOTE: SETTINGS FOR SHOW_MENU_LINK */
 #show-menu-link  {
-  font-size: 14px;
+  font-size: 13px;
   padding: 10px 7px;
-  color: rgb(255, 255, 255);
+  /* color: rgb(255, 255, 255); */
   margin-right: 20px;
   border-radius: 4px;
+  float: right;
+  z-index: 2;
+  text-decoration: underline;
+  /* margin-left: 500px; */
 }
 
 .star:hover, .board-name-option:hover, .team-visible:hover, .share:hover, #show-menu-link:hover {
@@ -243,6 +248,8 @@ font-size: 25px;
   float: right;
   padding: 20px;
   margin: 0;
+  color: rgb(12,57,83);
+  z-index: 2;
   background-color: #dfe3e6;
 }
 #menu-container a, #show-menu-link a {
