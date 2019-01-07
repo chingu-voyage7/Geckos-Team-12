@@ -14,19 +14,19 @@ const backgroundImages = [
 
 let menu = {
   // Toggles menu from view (slide into or out of view)
-  toggleMenuContainer: function() {
+  toggleMenuContainer: function () {
     document.getElementById('menu-container').classList.toggle("element-invisible");
     document.getElementById('show-menu-link').classList.toggle("element-invisible");
   },
   // Shows or hides main menu
-  toggleMainMenu: function(idToHide) {
+  toggleMainMenu: function (idToHide) {
     document.getElementById('main-menu').classList.toggle("element-invisible");
     document.getElementById(idToHide).classList.toggle("element-invisible");
     document.getElementById('main-menu-header').classList.toggle("element-invisible");
     document.getElementById('menu-header').classList.toggle("element-invisible");
   },
   // Shows or hides a specific page (page id added when function called from HTML)
-  togglePage: function(id) {
+  togglePage: function (id) {
     document.getElementById('main-menu-header').classList.toggle("element-invisible");
     document.getElementById('menu-header').classList.toggle("element-invisible");
     document.getElementById('page-header').innerHTML = headers[id];
@@ -34,12 +34,12 @@ let menu = {
     menu.toggleMainMenu();
   },
   // Changes background color
-  changeBackground: function(color) {
+  changeBackground: function (color) {
     document.body.style.background = color;
   },
   // Changes background image
-  changeBackgroundImage: function(imageURL) {
-    document.body.style.backgroundImage = "url("+ imageURL +")";
+  changeBackgroundImage: function (imageURL) {
+    document.body.style.backgroundImage = "url(" + imageURL + ")";
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundRepeat = "no-repeat";
   }
@@ -56,7 +56,7 @@ function displayTitle() {
   if (titleTextArea === null) {
     titleTextArea = document.createElement("textarea");
     titleTextArea.id = "listTitleArea";
-  // adds the newly created element to the DOM
+    // adds the newly created element to the DOM
     listTitleExist = false;
   }
   titleTextArea.setAttribute("type", "text");
@@ -67,7 +67,7 @@ function displayTitle() {
   var titleTaker = document.getElementById("textAreaTitle").value;
   titleTextArea.innerHTML = titleTaker;
   document.getElementById("textAreaTitle").value = "";
-  }
+}
 
 function displayListInputField() {
   //checks to see if there is a div#listTextArea in our DOM (null means we do not have div#inputField), and creates it if its not there
@@ -78,7 +78,7 @@ function displayListInputField() {
     textAreaHolder.id = "listTextArea";
     listTextAreaExist = false;
   }
-  
+
   // Creates a textarea for adding lists
   var textAreaElement = document.createElement("textarea");
   textAreaElement.setAttribute("type", "text");
@@ -86,18 +86,18 @@ function displayListInputField() {
   textAreaElement.setAttribute("overflow", "break-word");
   textAreaElement.setAttribute("placeholder", "Enter list title...");
   textAreaHolder.appendChild(textAreaElement);
-  
+
   // Creates a "Add a List" button. It adds the textarea when clicked
   var button = document.createElement("button");
   button.innerHTML = "Add List";
   button.setAttribute("id", "createNewList");
   textAreaHolder.appendChild(button);
-  
-  button.addEventListener("click", function() {
+
+  button.addEventListener("click", function () {
     var titleTaker = document.getElementById("textAreaTitle").value;
-    if(titleTaker == ""){
+    if (titleTaker == "") {
       titleTaker = false;
-    }else{
+    } else {
       showTitleAndCardSection(); //Displays the List Container
       displayTitle(); // Adds a title
       hideButton('textAreaTitle');//hide Textarea
@@ -107,34 +107,34 @@ function displayListInputField() {
       // duplicate();
     }
   });
-  
+
   // Creates a delete "x" button and set attributes to it
   var closeButton = document.createElement("closeButton");
   closeButton.innerHTML = '<i class="fas fa-times"></i>';
   closeButton.setAttribute("id", "createNewCloseBtn");
   textAreaHolder.appendChild(closeButton);
-  
+
   //Checks to see if a div#listTextArea exists and creates one if it does not exist and appends it to its parentNode
   if (!listTextAreaExist) {
     document.querySelector(".listTextAreaContainer").appendChild(textAreaHolder);
   }
   // adds an event listener which will call the removeList() function to delete the div#listTextAreaExist when clicked
-  closeButton.addEventListener("click", function() {
+  closeButton.addEventListener("click", function () {
     removeList();
   });
 }
 
 //Shows the Title and Add Cards sections
-function showTitleAndCardSection(){
+function showTitleAndCardSection() {
   var showCardSection = document.getElementsByClassName("listContainer");
-  for (var i=0;i<showCardSection.length;i+=1){
-    showCardSection [i].style.display = 'block';
+  for (var i = 0; i < showCardSection.length; i += 1) {
+    showCardSection[i].style.display = 'block';
   }
 }
 
 function removeList(listTextArea) {
   var element = document.getElementById("listTextArea");
-  var emptyList = document.getElementById("textAreaTitle").value ==="";
+  var emptyList = document.getElementById("textAreaTitle").value === "";
   if (emptyList) {
     document.getElementById("addListLink").style.display = "block";
   }
@@ -146,9 +146,9 @@ function removeList(listTextArea) {
 
 function createNewListTextArea() {
   var listWrapper = document.getElementById("listWrapper");
-    var newListContainerDiv = document.createElement("div");
-    newListContainerDiv.setAttribute("id", "newListDiv");
-    listWrapper.appendChild(newListContainerDiv);
+  var newListContainerDiv = document.createElement("div");
+  newListContainerDiv.setAttribute("id", "newListDiv");
+  listWrapper.appendChild(newListContainerDiv);
 }
 
 
@@ -169,12 +169,12 @@ function displayInputField() {
   var a = document.getElementById("inputField");
   var inputFieldExist = true;
   if (a === null) {
-  a = document.createElement("inputField");
-  a.id = "inputField";
-  // adds the newly created element to the DOM
-  inputFieldExist = false;
+    a = document.createElement("inputField");
+    a.id = "inputField";
+    // adds the newly created element to the DOM
+    inputFieldExist = false;
   }
-  
+
   // Creates a textarea for input
   var b = document.createElement("textarea");
   b.setAttribute("type", "text");
@@ -182,35 +182,35 @@ function displayInputField() {
   b.setAttribute("overflow", "break-word");
   b.setAttribute("placeholder", "Enter a title for this card...");
   a.appendChild(b);
-  
+
   // Creates a "Add a Card" button. It adds the textarea when clicked
   var button = document.createElement("button");
   button.innerHTML = "Add Card";
   button.setAttribute("id", "createNewCard");
   a.appendChild(button);
-  
+
   //Call the CreateCard() function to create a new card when the 'Add a Card' button is clicked.
-  button.addEventListener("click", function() {
+  button.addEventListener("click", function () {
     //Checks to see if the textarea is empty. If it is a card will not be created when the user clicks the 'Add a Card' button.
-    if (document.getElementById("userInput").value ==="") {
+    if (document.getElementById("userInput").value === "") {
       return false;
-    }else{
+    } else {
       createACard();
     }
   });
-  
+
   // Creates a delete "x" button and set attributes to it
   var closeButton = document.createElement("closeButton");
   closeButton.innerHTML = '<i class="fas fa-times"></i>';
   closeButton.setAttribute("id", "createNewCloseBtn");
   a.appendChild(closeButton);
-  
+
   //Checks to see if a div#inputField exists and creates one if it does not exist and appends it to its parentNode
   if (!inputFieldExist) {
     document.querySelector(".cardContainer").appendChild(a);
   }
   // adds an event listener which will call the removeCard () function to delete the div#inputField when clicked
-  closeButton.addEventListener("click", function() {
+  closeButton.addEventListener("click", function () {
     removeCard();
   });
 }
@@ -219,7 +219,7 @@ function displayInputField() {
 function hideButton(x) {
   document.getElementById(x).style.display = "none"; // hide the button
 }
-  
+
 //Takes the input from div#inputField and creates a new 'titled' card
 function createACard() {
   var createCardElem = document.getElementById("createCard");
