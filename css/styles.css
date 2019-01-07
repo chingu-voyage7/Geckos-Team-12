@@ -3,14 +3,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(12,57,83);
   background: rgb(0, 121, 191);
-  margin: 0;
 }
 
 /*************** NAV BAR ***************/
+.nav-wrapper {
+  margin: -8px -8px 8px -8px;
+}
 
-nav.top-nav {
-  margin-top: 0;
-  margin: 0;
+nav.top-nav{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -33,7 +33,7 @@ nav div div .fas, nav div div .fab, nav div div .far {
   margin-left: -150px;
 }
 
-.top-nav-group-1 a, .top-nav-group-2 a, .top-nav-group-3 a {
+.top-nav-group-1 a, .top-nav-group-2 a, .top-nav-group-3 a, div.bottom-nav-menu, div.bottom-nav-menu a {
   text-decoration: none;
   color: rgb(255, 255, 255);
 }
@@ -64,7 +64,6 @@ nav div div .fas, nav div div .fab, nav div div .far {
 }
 
 .boards .fab  {
-  /* width: 200px; */
   font-size: 18px;
 }
 
@@ -73,6 +72,7 @@ nav div div .fas, nav div div .fab, nav div div .far {
   font-size: 14px;
   font-weight: 700;
 }
+
 
 div.logo a .fa-trello{
   font-size: 22px;
@@ -111,16 +111,127 @@ div.profile:hover {
   background-color: transparent;
 }
   
-div.bell {
-  background-color: rgb(235,90,70);
-}
-
-div.bell:hover {
-  background-color: rgb(207,81,61);
-}
 
 .fa-user-circle {
 font-size: 30px;
+}
+
+div.bottom-nav-menu {
+  display: flex;
+  flex-direction: row;
+  height: 45px;
+  background-color: rgba(1, 1, 1, 0.1);
+  padding-bottom: 5px;
+}
+
+.board-title {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.star {
+  font-size: 11px; 
+  padding-top: 12px;
+  margin: 6px 0 6px 0;
+  border-radius: 4px; 
+}
+.star a {
+  padding: 0 11px 0 11px;
+ 
+}
+
+.vl {
+  border-left: 1px solid rgba(255, 255, 255,0.2);
+  height: 18px;
+  padding-left: 15px;
+  margin-top: 15px;
+}
+
+span.vl.line {
+  margin-left: 15px !important;
+}
+.board-name-option {
+  font-size: 14px;
+  margin-right: 15px;
+  padding: 0 7px;
+  margin: 9px 0 6px 0;
+  border-radius: 4px;
+}
+.board-name-option a p, .team-visible  a p, .share p, .show-menu p, #show-menu-link{
+  margin-top:7px;
+}
+
+.board-name-option span {
+  font-size: 11px;
+  margin-left: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 2px 7px;;
+  border-radius: 25px;
+}
+
+.team-visible {
+  font-size: 14px;
+  margin-right: 15px;
+  padding: 0 7px;
+  margin: 9px 0 6px 0;
+  border-radius: 4px;
+}
+
+.fa-users {
+ font-size: 11px;
+ padding-right: 4px;
+}
+
+.users .fa-user-circle {
+border: 1px solid rgba(1, 1, 1, 0.2);
+color: rgba(255, 255, 255, 0.7);
+border-radius: 50%;
+margin-top: 10px;
+font-size: 25px;
+}
+
+.users .fa-user-circle:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  }
+
+.users .fa-user-circle:nth-child(2){
+margin-left: -8px;
+}
+
+.number {
+  margin-top: 11px;
+  padding: 7px 9px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-size: 11px;
+  margin-left: -6px;
+  margin:11px 12px 10px -6px;
+}
+
+.number:hover {
+  background-color: rgba(1, 1, 1, 0.3);
+}
+
+.share{
+  font-size: 14px;
+  padding: 0 7px;
+  margin: 9px 0 6px 0;
+  border-radius: 4px;
+}
+
+/*  NOTE: SETTINGS FOR SHOW_MENU_LINK */
+#show-menu-link  {
+  font-size: 14px;
+  padding: 10px 7px;
+  color: rgb(255, 255, 255);
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+.star:hover, .board-name-option:hover, .team-visible:hover, .share:hover, #show-menu-link:hover {
+  background-color: rgba(1, 1, 1, 0.3);
 }
 
 /*************** SLIDEOUT MENU STYLES ***************/

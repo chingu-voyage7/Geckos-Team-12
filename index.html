@@ -8,7 +8,10 @@
   <meta http-equiv="x-ua-compatible" content="ie-edge">
   <meta name="author" content="Joan Clarke, Lauren G, William Mooney, Vincent Tang">
   <meta name="description" content="This is a simple clone of Trello made during Chingu Voyage 7 as part of Gecko's Team 12">
-
+  
+  <!-- Trello icon -->
+  <link rel="shortcut icon" href="assets/trello.png" type="image/x-icon">
+  <link rel="icon" href="assets/trello.png" type="image/x-icon">
   <title>Clono</title>
 
   <!-- Link to CSS -->
@@ -22,7 +25,10 @@
 </head>
 
 <body>
+<!-- *************** Main Container *************** -->
 <div id="main-container">
+<div class="nav-wrapper">
+  <!-- Top Nav -->
   <nav class="top-nav">
     <!-- Use flexbox -->
     <div class="top-nav-group-1">
@@ -33,11 +39,9 @@
       <!-- Search Icon -->
       <div class="search"><a href="#" alt="search icon"><i class="fas fa-search"></i></a></div>
     </div>
-
     <div class="top-nav-group-2">
       <div class="logo"><a href="#" alt="trello logo"><i class="fab fa-trello"></i> <p> Clono</p></a></div>
     </div>
-
     <div class="top-nav-group-3">
       <!-- Plus Icon -->
       <div class="plus"><a href="#" alt="plus icon"><i class="fas fa-plus"></i></a></div>
@@ -48,24 +52,22 @@
       <!-- Profile Avatar -->
       <div class="profile"><a href="#" alt="profile icon"><i class="fas fa-user-circle"></i></a></div>
     </div>
-  </nav>
+  </nav><!-- end of top-nav -->
 
-  <div id="below-nav-menu">
-    <div>
-      <span>Clone Clono</span>
-      <i class="far fa-star"></i>
-      Geckos-12 <span>Free</span>
-
-      <div>
-        <i class="fas fa-users"></i>
-        <span>Team Visible</span>
-      </div>
-
+  <!-- Bottom Nav -->
+  <div class="bottom-nav-menu">
+      <div class="board-title"><p>Board Title</p></div>
+      <div class="star"><a href="#"><i class="far fa-star"></i></a></div><span class="vl line"></span>
+      <div class="board-name-option"><a href="#" alt="board name"><p>Geckos-12 <span>Free</span></p></a></div><span class="vl line"></span>
+      <div class="team-visible"><a href="#" alt="team visible"><p><i class="fas fa-users"></i> Team Visible</p></a></div><span class="vl line"></span>
+      <div class="users">
       <i class="fas fa-user-circle"></i>
-
-      <i class="fas fa-user-plus"></i>
-
+      <i class="fas fa-user-circle"></i>
     </div>
+    <div class="number"> <a href="#" alt="number">2</a></div>
+    <div class="share"><p>Share</p></div>
+</div><!-- end of nav-wrapper -->
+
     <!-- *************** Menu *************** -->
     <!-- Menu Link -->
     <span id="show-menu-link"><a href="#" onclick="menu.toggleMenuContainer()">Show Menu</a></span>
@@ -155,6 +157,7 @@
 
   </div><!-- end of listWrapper -->
 </div> <!--main-container-->
+</body>
   <!-- Link to JavaScript -->
   <script src="js/scripts.js"></script>
 </body>
