@@ -1,8 +1,16 @@
+/* #sample-card {
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+  width: 20%;
+}
+#sample-pen {
+  z-index: 50;
+} */
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(12,57,83);
-  background: rgb(0, 121, 191);
 }
 
 /*************** NAV BAR ***************/
@@ -244,12 +252,12 @@ font-size: 25px;
 #show-menu-link {
   float: right;
 }
-#menu-options {
+#menu-options-container {
   list-style-type: none;
   padding: 0px;
   margin: 0px;
 }
-#menu-options li {
+#menu-options-container li {
   padding-top: 10px;
 }
 .header-container {
@@ -268,6 +276,14 @@ font-size: 25px;
 .close-button {
   float: right;
 }
+.back-arrow, .close-button {
+  font-size: 1.5em;
+  color: grey;
+}
+.menu-option span {
+  vertical-align: middle;
+  margin-right: 12px;
+}
 .change-background-tile {
   border: none;
   width: 137.5px;
@@ -281,6 +297,12 @@ font-size: 25px;
 .change-background-tile:focus {
   outline: none;
 }
+#background-menu-icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+}
 .element-invisible {
   position: absolute !important;
   height: 1px;
@@ -290,251 +312,328 @@ font-size: 25px;
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-/*************** CREATE LIST ***************/
-
-#listWrapper {
+/*************** ADD LISTS ***************/
+.work-board {
+  background-color: transparent;
+  border-radius: 5px;
   display: flex;
   flex-direction: row;
 }
 
-.listTextAreaContainer, .listContainer, #newListDiv{
-  /* padding-top: 6px; */
-  /* padding-bottom: 5px; */
-  width: 280px;
-  background-color: rgb(237, 239, 240);
-  border-radius: 3px; /*** for rounded corners ***/
-  vertical-align: top;
+#list-wrapper {
+  margin: 8px 5px 10px 0px;
+  padding: 2px;
+  border-radius: 4px;
+  background: transparent;
+  border: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
-/* #listTextAreaContainer1 {
-  margin-left: 10px;
-  background-color: red;
-  display: block;
-  z-index: 2;
-} */
-
-
-#newListDiv {
-  margin-left: 10px;
-  background-color: red;
-  width: 200px;
-  /* height: 200px; */
-} 
-
-/* #listTextArea {
-  width: 50%;
+.list {
+  background: transparent;
 }
 
-#list-link-container {
- width: 50%;
-} */
-
-.listContainer {
-  display: none;
+.list-container {
+  /* padding: 4px 8px; */
+  border-radius: 4px;
+  width: 276px;
+  background-color: rgb(226,228,230);
+  border: none;
+  margin: 2px 5px;
 }
 
-#list-link-container a{
-  display: block;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border-radius: 3px; /*** for rounded corners ***/
+.list-heading {
+  display: flex;
+  flex-direction: row;
+  padding: 4px 8px; 
+  margin-bottom: 5px;
 }
 
-a#addListLink, a#addAnotherListLink {
+.list .list-heading h3 {
+  margin: 2px 24px 0px 3px;
+  width: 75%;
+  border-radius: 4px;
+  outline:none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.list .list-heading h3:focus{
+  border: solid 2px   rgb(91,164,207);
+  background-color: rgb(255, 255, 255);
+}
+
+.ellipsis {
+  /* display: inline-block; */
+  width: 33px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 0px 1px 0px 0px;
+  padding: 0px;
+  float: right;
+}
+
+form.add-item-form .ellipsis{
+  margin-top: 8px;
+  margin-right: 8px;
+  padding-bottom: 5px;
+}
+
+.board-wrapper a{
   text-decoration: none;
-  color: rgb(255, 255, 255);
-  background-color: rgba(1, 1, 1, 0.3);
+  color: rgb(131, 140, 145);
+  font-size: 19px;
+  vertical-align:middle;
+  /* line-height:3px;  */
+  text-align:center;
+}
+
+#card-options-container a{
+  text-decoration: none;
+}
+
+form#add-list-form { 
+  margin-top: 12px;
+  width: 270px;
+  /* transition: height 1s, width 1s, padding 1s, visibility 1s, opacity 0.5s ease-out; */
+}
+
+.form-inner-container {
+  background-color: rgb(226,228,230);
+  padding: 6px;
+  border-radius: 4px;
+}
+
+input[type=text] {
+  height: 32px;
+  display: block;
+  border-radius: 4px;
+  border: solid 1px   rgb(91,164,207);
+  width: 247px;
+  font-size: 14px;
+  outline: none;
+  box-shadow: 0 0 0 1px   rgb(91,164,207);
+  word-wrap: break-word;
+  overflow: hidden;
+  color: rgb(131, 140, 145);
   padding-left: 10px;
 }
 
-a#addListLink:hover, a#addAnotherListLink:hover {
-  background-color: rgba(1, 1, 1, 0.4);
-}
-
-.listContent {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-}
-
-.listHeaderContainer {
-  display: flex;
-  flex-direction: row;
-  /* justify-content: flex-end; */
-  /* height: 30px; */
-}
-/* .listHeaderContainer h2{
-  font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 6px;
-} */
-
-#listTitle {
-  /* padding-left: 10px; */
-  width: 87%;
-}
-
-#ellipsisContainer {
-  /* margin-left:80px; */
-  width: 13%;
-  vertical-align: middle;
-  border-radius: 3px; /*** for rounded corners ***/
-}
-
-#ellipsisContainer:hover {
-  background-color: rgba(214,218,220, 0.5);
-}
-#ellipsisContainer a {
-  vertical-align: middle;
-  margin-left: 12px;
-  text-align: center;
-  text-decoration: none;
-  color: rgb(12,57,83);
-}
-.fa-ellipsis-h {
-  font-size: 12px;
-  margin-top: 15px;
-}
-
-/*** Card container ***/
-.cardContainer {
-  max-width: 100%;
-}
-
-/*************** ADD - DELETE - EDIT CARDS ***************/
-
-/*** Adding shadows for card effect ***/
-#newCard {
-  margin: 10px;
-  box-shadow: 0 2px 4px 0 rgba(1, 1, 1, 0.2);
-  border: none;
-  border-radius: 3px; /*** for rounded corners ***/
-  /* padding: 1px 20px; */
-  background-color: rgb(255, 255, 255);
-  min-height: 18px;
+input[type=submit] {
+  outline: none;
   font-size: 14px;
-  word-wrap: break-word;
-  padding: 8px 10px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  padding: 8px 13px;
+  background-color: rgb(90, 172, 68);
+  box-shadow: 0 1px 0 0 rgb(63, 111, 33);
+  border: none;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-top: 10px 0px 0 10px;
 }
 
-#newCard:hover {
-  background-color: rgb(248, 249, 249);
+form.add-item-form div input[type=submit] {
+  margin-left: 10px;
 }
 
-/* textarea { */
-#textAreaTitle, #textAreaTitle2, #userInput {  
-  outline: none; /* Removes the blue glow from around textarea */
-  /* resize: none; Removes resize handle  */
-  margin: auto;
-  /* width: 210px; */
-  width: 86%;
+input[type=submit]:hover {
+  background-color: rgb(71, 138, 53);
+}
+
+input[type=button]{
+  margin-right: -5px;
+  border: none;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(131, 140, 145);
+}
+
+input[type=button]:hover{
+  color: rgb(103,109,112);
+}
+
+form.add-item-form {
+  margin-top: 20px;
+      margin-bottom: -15px;
+}
+
+form.add-item-form textarea {
+  outline: none;
+  width: 87%;
   height: 50px;
-  /* min-height: 18px; */
   max-height: 120px;
+  margin-top: -5px;
+  margin-left: 8px;
   padding: 10px;
   font-size: 14px;
-  box-shadow: 0 2px 4px 0 rgba(1, 1, 1, 0.2);
+  box-shadow: 0px 1px 0px 0 rgba(1, 1, 1, 0.2);
   border: none;
   border-radius: 3px;
   display: block;
   word-wrap: break-word;
-  /* overflow: hidden; */
+  resize: none;
 }
 
-#textAreaTitle, #textAreaTitle2 {  
-  outline: auto;
-  outline-color: rgb(2,106,167);
-  height: 20px;
-  max-height: 120px;
+.card {
+  width: 87%;
+  margin-left: 8px;
+  box-shadow: 0px 1px 0px 0 rgba(1, 1, 1, 0.2);
   border: none;
-  margin-top: 4px;
-}
-#textAreaTitle {
-  margin-top: 6px;
-  height: 16px;
-}
-
-#textAreaTitle2 {
-  outline: none; 
-  box-shadow: 0 2px 0px 0 rgb(237, 239, 240);
-  resize: none; /* Removes resize handle  */
-  color: rgb(12,57,83);
-  font-weight: bold;
-  background-color: transparent;
-  word-wrap: break-word;
-}
-
-#textAreaTitle2:focus {
-  outline: auto;
-  outline-color: rgb(2,106,167);
-  resize: auto;
-  color: rgb(12,57,83);
+  border-radius: 3px;
   background-color: rgb(255, 255, 255);
+  min-height: 18px;
+  word-wrap: break-word;
+  padding: 0px 10px;
+  margin-top: 9px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.card:hover {
+  background-color: rgba(248,249,249,0.7);
+}
+.card p{
+  position: relative;
+  padding: 0px;
+  margin: 6px 0;
+  font-size: 14px;
 }
 
-.addCardBtn {
-  font-size: 16px;
-  font-weight: 600;
-  color: rgb(255, 255, 255);
-  padding: 8px 13px;
-  background-color: rgb(90, 172, 68);
-  box-shadow: 0 2px 4px 0 rgba(1, 1, 1, 0.2);
-  border: none;
-  border-radius: 3px; /*** for rounded corners ***/
-  margin-top: 10px;
-  margin-left: 10px;
+.card a{
+  position: absolute;
+  margin-left: 220px;
 }
 
-button {
-  outline: none; /* Removes the blue glow from around textarea */
-  font-size: 16px;
-  font-weight: 600;
-  color: rgb(255, 255, 255);
-  padding: 8px 13px;
-  background-color: rgb(90, 172, 68);
-  box-shadow: 0 2px 4px 0 rgba(1, 1, 1, 0.2);
-  border: none;
-  border-radius: 3px; /*** for rounded corners ***/
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-bottom: 10px;
+.fa-pen {
+  font-size: 10px;
+  margin: 0;
+  padding: 7px;
+  border-radius: 4px;
+}
+.fa-pen:hover {
+  background-color: rgb(226,228,230);
 }
 
-#createNewCloseBtn {
-  color: rgb(131, 140, 145);
-  font-size: 20px;
-  margin-left: 10px;
-}
-
-a#addCardLink,
-a#addAnotherCardLink {
-  padding-left: 10px;
-  padding-bottom: 10px;
-  text-decoration: none;
-  color: rgb(131, 140, 145);
-}
-
-a#addAnotherListLink, a#addAnotherCardLink {
+#add-list-form, .add-item-form {
   display: none;
 }
 
-a#addCardLink:hover,
-a#addAnotherCardLink:hover {
-  text-decoration: underline;
-  color: rgb(51, 51, 51);
+.link-wrapper {
+  display: inline-block;
+  margin-top: 20px;
 }
 
-.card-link-container a {
-  display: block;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border-bottom-right-radius: 3px; /*** for rounded corners ***/
-  border-bottom-left-radius: 3px; /*** for rounded corners ***/
+a#show-list-form, a.show-card-form {
+  text-decoration: none;
+  border-radius: 4px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(1, 1, 1, 0.3);
+  padding: 10px 15px 10px 20px;
+  width: 242px;
+  text-align: left;
+  font-size: 14px;
+  height: 17px;
 }
+
+a.show-card-form {
+  border-top-right-radius: 0px; 
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: transparent;
+  display: inline-block;
+  width: 242px;
+  color: rgb(131, 140, 145);
+}
+
+a.show-card-form:hover, .ellipsis:hover {
+  background-color: rgba(131, 140, 145, 0.2)
+}
+a#show-list-form:hover {
+  background-color: rgba(1, 1, 1, 0.4);
+}
+
+a#show-list-form span:first-child {
+  padding-right: 172px;
+}
+
+a#show-list-form span:nth-child(2), a.show-card-form span:nth-child(2){
+  display: none;   /* hides the 'Add another link' when window loads */
+} 
 
 .card-link-container a:hover {
   background-color: rgba(131,140,145, 0.2);
   background-color: rgba(214,218,220, 0.5);
+}
+
+/*************** CARD OPTIONS ***************/
+#card-options-container {
+  position: absolute;
+}
+
+.card-options-ul {
+  padding: 0;
+  margin: 0;
+}
+
+.card-options-ul li {
+  list-style: none;
+  margin: 7px 0;
+}
+
+.card-options-ul a {
+  background-color: black;
+  opacity: 0.8;
+  color: white;
+  padding: 3px 7px;
+  border-radius: 5px;
+  font-size: inherit;
+}
+
+/* Label container */
+#labels-container {
+  background-color: white;
+  width: 200px;
+  height: 200px;
+  z-index: 100;
+  bottom: 0;
+  position: absolute;
+}
+
+.label-tile {
+  display: block;
+  width: 180px;
+  height: 30px;
+  margin: 5px auto;
+  border-radius: 5px;
+}
+
+.card-label-tile {
+  margin: 5px;
+  display: block;
+  width: 60px;
+  height: 10px;
+  border-radius: 10px;
+}
+
+
+/*************** OVERLAY MODAL ***************/
+/* Label Option */
+#overlay-container {
+  border: 2px solid black;
+  position: absolute;
+  margin: 20px auto;
+  height: 70%;
+  width: 70%;
+  left: 15%;
+  bottom: 15%;
+  z-index: 100;
+}
+
+.overlay-opacity {
+  opacity: 0.3;
 }

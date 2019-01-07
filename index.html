@@ -91,113 +91,109 @@
         </div>
       </div><!--end of bottom-nav-menu -->
 
-      <!-- *************** Menu *************** -->
-      <!-- Menu Link -->
-      <span id="show-menu-link"><a href="#" onclick="menu.toggleMenuContainer()">Show Menu</a></span>
-    </div><!-- end of nav-wrapper -->
-    <!-- Menu Slideout -->
-    <div class="element-invisible" id="menu-container">
-      <!-- Main Menu -->
-      <div id="main-menu">
-        <ul class="header-container" id="main-menu-header">
-          <li class="back-arrow"></li>
-          <li class="header">Menu</li>
-          <a href="#" onclick="menu.toggleMenuContainer()">
-            <li class="close-button">&times</li>
-          </a>
-          <hr />
-        </ul> <!-- main-menu-header -->
-        <ul id="menu-options">
-          <li><a href="#" onclick="menu.togglePage('change-background')">Change Background</a></li>
-          <li><a href="#">Filter Cards</a></li>
-          <li><a href="#">Copy Board</a></li>
-          <li><a href="#">Settings</a></li>
-        </ul> <!-- menu-options -->
-      </div> <!-- main-menu -->
-      <div id="menu-pages">
-        <!-- Reusable Menu Header -->
-        <ul class="element-invisible header-container" id="menu-header">
-          <a href="#" onclick="menu.toggleMainMenu('change-background')">
-            <li class="back-arrow">&#8592;</li>
-          </a>
-          <li class="header" id="page-header"></li>
-          <a href="#" onclick="menu.toggleMenuContainer()">
-            <li class="close-button">&times</li>
-          </a>
-          <hr />
-        </ul> <!-- menu-header -->
-        <!-- Change Background Page -->
-        <div class="element-invisible" id="change-background">
-          <!-- <a href="#" onclick="menu.togglePage()">Colors</a> -->
-          <input class="change-background-tile" style="background-color:rgb(0,121,191)" type="button" onclick="menu.changeBackground('rgb(0,121,191)')" />
-          <input class="change-background-tile" style="background-color:rgb(210,144,52)" type="button" onclick="menu.changeBackground('rgb(210,144,52)')" />
-          <input class="change-background-tile" style="background-color:rgb(81,152,57)" type="button" onclick="menu.changeBackground('rgb(81,152,57)')" />
+      <!-- *************** MENU *************** -->
+  <!-- Menu Link -->
+  <span id="show-menu-link"><a href="#" onclick="menu.toggleMenuContainer()">Show Menu</a></span>
+</div><!-- end of nav-wrapper -->
+  <!-- Menu Slideout -->
+  <div class="element-invisible" id="menu-container">
+    <!-- Main Menu -->
+    <div id="main-menu">
+      <ul class="header-container" id="main-menu-header">
+        <li class="back-arrow"></li>
+        <li class="header">Menu</li>
+        <a href="#" title="Close the menu." onclick="menu.toggleMenuContainer()"><li class="close-button">&times</li></a>
+        <hr />
+      </ul> <!-- main-menu-header -->
+      <!-- Menu Options -->
+      <ul id="menu-options-container">
+        <li class="menu-option"><a href="#" onclick="menu.togglePage('change-background')"><span id="background-menu-icon"></span>Change Background</a></li>
+        <li class="menu-option"><a href="#" onclick="menu.togglePage('filter-cards')">Filter Cards</a></li>
+        <li class="menu-option"><a href="#" onclick="menu.togglePage('copy-board')">Copy Board</a></li>
+        <li class="menu-option"><a href="#" onclick="menu.togglePage('settings')">Settings</a></li>
+      </ul> <!-- menu-options -->
+    </div> <!-- main-menu -->
+    <div id="menu-pages">
+      <!-- Reusable Menu Header -->
+      <ul class="element-invisible header-container" id="menu-header">
+        <a href="#" title="Go back." onclick="menu.togglePage()"><li class="back-arrow">&#8592;</li></a>
+        <li class="header" id="page-header"></li>
+        <a href="#" title="Close the menu." onclick="menu.toggleMenuContainer()"><li class="close-button">&times</li></a>
+        <hr />
+      </ul> <!-- menu-header -->
+      <!-- Change Background Page -->
+      <div class="element-invisible" id="change-background">
+        <!-- <a href="#" onclick="menu.togglePage()">Colors</a> -->
+        <input class="change-background-tile" style="background-color:rgb(0,121,191)" type="button" onclick="menu.changeBackground('rgb(0,121,191)')" />
+        <input class="change-background-tile" style="background-color:rgb(210,144,52)" type="button" onclick="menu.changeBackground('rgb(210,144,52)')" />
+        <input class="change-background-tile" style="background-color:rgb(81,152,57)" type="button" onclick="menu.changeBackground('rgb(81,152,57)')" />
 
-          <!-- <a href="#" onclick="menu.togglePage()">Images</a> -->
-          <input class="change-background-tile" style="background-image:url(assets/andrea-reiman-251037-unsplash.jpg)"
-            type="button" onclick="menu.changeBackgroundImage('assets/andrea-reiman-251037-unsplash.jpg')" />
-          <input class="change-background-tile" style="background-image:url(assets/andreas-brucker-630339-unsplash.jpg)"
-            type="button" onclick="menu.changeBackgroundImage('assets/andreas-brucker-630339-unsplash.jpg')" />
-          <input class="change-background-tile" style="background-image:url(assets/charl-van-rooy-672182-unsplash.jpg)"
-            type="button" onclick="menu.changeBackgroundImage('assets/charl-van-rooy-672182-unsplash.jpg')" />
-        </div> <!-- change-background-content -->
-      </div> <!-- menu-pages -->
-    </div> <!-- menu-slideout -->
+        <!-- <a href="#" onclick="menu.togglePage()">Images</a> -->
+        <input class="change-background-tile" style="background-image:url(assets/andrea-reiman-251037-unsplash.jpg)" type="button" onclick="menu.changeBackground('assets/andrea-reiman-251037-unsplash.jpg')" />
+        <input class="change-background-tile" style="background-image:url(assets/andreas-brucker-630339-unsplash.jpg)" type="button" onclick="menu.changeBackground('assets/andreas-brucker-630339-unsplash.jpg')" />
+        <input class="change-background-tile" style="background-image:url(assets/charl-van-rooy-672182-unsplash.jpg)" type="button" onclick="menu.changeBackground('assets/charl-van-rooy-672182-unsplash.jpg')" />
+      </div> <!-- change-background-content -->
+      <div class="element-invisible" id="colors"></div>
+      <div class="element-invisible" id="photos"></div>
+      <div class="element-invisible" id="filter-cards"></div>
+      <div class="element-invisible" id="copy-board"></div>
+      <div class="element-invisible" id="settings"></div>
+    </div> <!-- menu-pages -->
+  </div> <!-- menu-slideout -->
 
-    <!-- *************** WRAPPER  ************** -->
+  <!-- *************** ADD LISTS *************** -->
+  <!--Board Wrapper-->
+  <div class="board-wrapper">
+    <div class="work-board">
+      <div id="list-wrapper"></div>
+      <!-- Link Wrapper -->
+      <div class="link-wrapper">
+        <a href="#" id="show-list-form" onclick="toggleDiv('add-list-form', 'show-list-form');">
+          <span class="placeholder"><i class="fas fa-plus"></i> Add a list</span>
+          <span class="placeholder"><i class="fas fa-plus"></i> Add another list</span>
+        </a>
+      </div>
+      <!--end of link-wrapper -->
+      <!-- List Form -->
+      <form id="add-list-form">
+        <div class="form-inner-container">
+          <input type="text" id="list-name" placeholder="Enter list title..." autocomplete="off">
+          <input type="submit" value="Add List">
+          <input type="button" onclick="toggleDiv('add-list-form', 'show-list-form')" value="&#88;">
+        </div>
+      </form><!-- end of add-list-form -->
+    </div><!-- end of work-board -->
+  </div><!-- end of board-wrapper -->
 
-    <!-- *************** ADD LIST  ************** -->
-    <div class="listTextAreaContainer">
-      <div id="listTextArea"></div>
-      <div id="list-link-container">
-        <a id="addListLink" href="#" onclick="displayListInputField(); hideButton('addListLink');""><i class=" fas
-          fa-plus"></i> Add a list</a>
-        <a id="addAnotherListLink" href="#" onclick="displayListInputField()"><i class="fas fa-plus"></i> Add another
-          list</a>
-      </div><!-- end of list-link-container -->
-    </div>
-    <div id="listWrapper">
-      <!-- List Container -->
-      <div class="listContainer">
-        <div class="listContent">
-          <div class="listHeaderContainer">
-            <div id="listTitle">
-              <!--Temporary header-->
-              <!-- <h2>General</h2> -->
-            </div>
-            <div id="ellipsisContainer">
-              <a href="#"><i class="fas fa-ellipsis-h"></i></a>
-            </div>
-            <!--The three dots are called ellipsis-->
-          </div>
+<!-- ***********************************************************
+                        CARD OPTIONS
+************************************************************* -->
 
-          <!-- *************** ADD - DELETE - EDIT CARDS  ************** -->
+<!-- ******************* SMALL OPTIONS MENU ******************* -->
+<div id="card-options-container" class="element-invisible">
+  <ul class="card-options-ul">
+    <li><a href="#" onclick="cardOptions.showLabels(event)">Edit Labels</a></li>
+    <li><a href="#">Change Members</a></li>
+    <li><a href="#">Move</a></li>
+    <li><a href="#">Copy</a></li>
+    <li><a href="#">Change Due Date</a></li>
+    <li><a href="#">Archive</a></li>
+  </ul>
+</div>
+<!-- ******************* LABELS ******************** -->
+<div id="labels-container" class="element-invisible">
+  <input class="label-tile" style="background-color:rgb(0,121,191)" type="button" onclick="cardOptions.changeLabel(event, 'rgb(0,121,191)')" />
+  <input class="label-tile" style="background-color:rgb(210,144,52)" type="button" onclick="cardOptions.changeLabel(event, 'rgb(210,144,52)')" />
+  <input class="label-tile" style="background-color:rgb(81,152,57)" type="button" onclick="cardOptions.changeLabel(event, 'rgb(81,152,57)')" />
+</div>
+<!-- ******************* OVERLAY MODAL ******************** -->
+<!-- <div class="list">
+  <div id="sample-card" class="card">Sample Card<a><i id="sample-pen" class="fas fa-pen"></i></a></div>
+</div> -->
+<div class="element-invisible" id="overlay-container"></div>
 
-          <div class="cardContainer">
-            <!-- Create card here -->
-            <div id="createCard"></div>
 
-            <!-- Create text-area and 'Add a Card' and close 'X' buttons here -->
-            <div id="inputField"></div>
-          </div>
-          <div class="card-link-container">
-            <!--AddCardLink - when clicked it adds an input field, and the buttons for adding a card and closing the input field. -->
-            <a id="addCardLink" href="#" onclick="displayInputField(); hideButton('addCardLink');"><i class="fas fa-plus"></i>
-              Add a Card</a>
-
-            <!--AddAnotherCardLink - when clicked should perform the same as AddCardLink except that it is hidden at first and is shown only when the close button is clicked. -->
-            <a id="addAnotherCardLink" href="#" onclick="displayInputField(); hideButton('addAnotherCardLink');"><i
-                class="fas fa-plus"></i> Add another Card</a>
-          </div><!-- end of card-link-container -->
-        </div><!-- end of list-content -->
-      </div><!-- end of List Container -->
-
-    </div><!-- end of listWrapper -->
-  </div>
-  <!--main-container-->
+  <!-- Link to JavaScript -->
+  <script src="js/scripts.js"></script>
 </body>
-<!-- Link to JavaScript -->
-<script src="js/scripts.js"></script>
-</body>
-
 </html>
