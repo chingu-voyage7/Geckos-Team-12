@@ -126,10 +126,18 @@ div.bottom-nav-menu {
 }
 
 .board-title {
-  padding-left: 20px;
-  padding-right: 20px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
   font-size: 18px;
   font-weight: 700;
+  /* padding: 0px; */
+  margin: 9px 5px 6px 10px;
+  border-radius: 4px;
+  min-width: 116px;
+}
+
+.board-title p{
+  margin: 5px 11px 0 11px;
 }
 
 .star {
@@ -137,6 +145,7 @@ div.bottom-nav-menu {
   padding-top: 12px;
   margin: 6px 0 6px 0;
   border-radius: 4px; 
+  min-width: 36px;
 }
 .star a {
   padding: 0 11px 0 11px;
@@ -159,6 +168,7 @@ span.vl.line {
   padding: 0 7px;
   margin: 9px 0 6px 0;
   border-radius: 4px;
+  min-width: 115px;
 }
 
 .board-name-option a p, .team-visible  a p, .share p, .show-menu p, #show-menu-link{
@@ -179,6 +189,11 @@ span.vl.line {
   padding: 0 7px;
   margin: 9px 0 6px 0;
   border-radius: 4px;
+  min-width: 105px;
+}
+
+.users {
+min-width: 50px;
 }
 
 .fa-users {
@@ -210,6 +225,7 @@ font-size: 25px;
   font-size: 11px;
   margin-left: -6px;
   margin:11px 12px 10px -6px;
+  min-width: 6px;;
 }
 
 .number:hover {
@@ -221,23 +237,20 @@ font-size: 25px;
   padding: 0 7px;
   margin: 9px 0 6px 0;
   border-radius: 4px;
-  /* margin-right: 500px; */
+  margin-right: 295px;
+  width: 42px;
 }
 
-/*  NOTE: SETTINGS FOR SHOW_MENU_LINK */
-#show-menu-link  {
-  font-size: 13px;
-  padding: 10px 7px;
-  /* color: rgb(255, 255, 255); */
-  margin-right: 20px;
+#show-menu-link a {
+  padding: 8px;
   border-radius: 4px;
-  float: right;
-  z-index: 2;
-  text-decoration: underline;
-  /* margin-left: 500px; */
 }
 
-.star:hover, .board-name-option:hover, .team-visible:hover, .share:hover, #show-menu-link:hover {
+#show-menu-link a span{
+  text-decoration: underline;
+}
+
+.board-title:hover, .star:hover, .board-name-option:hover, .team-visible:hover, .share:hover, #show-menu-link a:hover {
   background-color: rgba(1, 1, 1, 0.3);
 }
 
@@ -257,8 +270,16 @@ font-size: 25px;
   color: inherit;
 }
 #show-menu-link {
+  font-size: 13px;
+  padding: 10px 7px;
+  margin-right: 20px;
+  border-radius: 4px;
   float: right;
+  z-index: 2;
+  text-align: right;
+  min-width: 320px;
 }
+
 #menu-options-container {
   list-style-type: none;
   padding: 0px;
