@@ -1,3 +1,12 @@
+/* #sample-card {
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+  width: 20%;
+}
+#sample-pen {
+  z-index: 50;
+} */
 
 /* #sample-card {
   border: 1px solid black;
@@ -10,9 +19,236 @@
 } */
 
 body {
-  font-family: 'Roboto', sans-serif;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: rgb(12,57,83);
+}
+
+/*************** NAV BAR ***************/
+
+.nav-wrapper {
+  margin: -8px -8px 8px -8px;
+}
+
+nav.top-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 40px;
+  background-color: rgba(1, 1, 1, 0.3);
+}
+
+nav div div .fas, nav div div .fab, nav div div .far {
+  color: rgb(255, 255, 255);
+  /* font-size: 18px; */
+}
+
+.top-nav-group-1, .top-nav-group-2, .top-nav-group-3 {
+  display: flex;
+  flex-direction: row;
+  padding: 3px;
+}
+
+.top-nav-group-2 {
+  margin-left: -150px;
+}
+
+.top-nav-group-1 a, .top-nav-group-2 a, .top-nav-group-3 a, div.bottom-nav-menu, div.bottom-nav-menu a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.top-nav-group-1 div, .top-nav-group-3 div {
+  margin-right: 4px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 7px 7px;
+}
+
+.top-nav-group-3 div {
+  padding: 10px 9px 0px 9px;
+}
+
+.top-nav-group-1 div:hover, .top-nav-group-3 div:hover  {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.home-icon {
+  padding: 4px 7px;;
+}
+
+.boards .fab  {
+  font-size: 18px;
+}
+
+.boards a p, .logo a p{
+  display: inline;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+div.logo a .fa-trello{
+  font-size: 22px;
+  color: rgba(255, 255, 255,0.3)
+}
+
+.logo a p {
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Rock Salt', cursive;
+  font-family: 'Homemade Apple', cursive;
+  font-size: 20px;
+  color: rgba(255, 255, 255,0.3)
+  }
+
+ div.logo a .fa-trello:hover, div.logo a p:hover {
+    color: rgb(255, 255, 255);
+  }
+  
+div.search {
+  width: 165px;
+  text-align: right;
+}
+
+div.search:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+div.profile {
+  background-color: transparent;
+  margin-right: -8px;
+  margin-left: -10px;
+  margin-top: -8px;
+}
+
+div.profile:hover {
+  background-color: transparent;
+}
+  
+.fa-user-circle {
+font-size: 30px;
+}
+
+div.bottom-nav-menu {
+  display: flex;
+  flex-direction: row;
+  height: 45px;
+  background-color: rgba(1, 1, 1, 0.1);
+  padding-bottom: 5px;
+}
+
+.board-title {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.star {
+  font-size: 11px; 
+  padding-top: 12px;
+  margin: 6px 0 6px 0;
+  border-radius: 4px; 
+}
+.star a {
+  padding: 0 11px 0 11px;
+}
+
+.vl {
+  border-left: 1px solid rgba(255, 255, 255,0.2);
+  height: 18px;
+  padding-left: 15px;
+  margin-top: 15px;
+}
+
+span.vl.line {
+  margin-left: 15px !important;
+}
+
+.board-name-option {
+  font-size: 14px;
+  margin-right: 15px;
+  padding: 0 7px;
+  margin: 9px 0 6px 0;
+  border-radius: 4px;
+}
+
+.board-name-option a p, .team-visible  a p, .share p, .show-menu p, #show-menu-link{
+  margin-top:7px;
+}
+
+.board-name-option span {
+  font-size: 11px;
+  margin-left: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 2px 7px;;
+  border-radius: 25px;
+}
+
+.team-visible {
+  font-size: 14px;
+  margin-right: 15px;
+  padding: 0 7px;
+  margin: 9px 0 6px 0;
+  border-radius: 4px;
+}
+
+.fa-users {
+ font-size: 11px;
+ padding-right: 4px;
+}
+
+.users .fa-user-circle {
+border: 1px solid rgba(1, 1, 1, 0.2);
+color: rgba(255, 255, 255, 0.7);
+border-radius: 50%;
+margin-top: 10px;
+font-size: 25px;
+}
+
+.users .fa-user-circle:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.users .fa-user-circle:nth-child(2){
+  margin-left: -8px;
+}
+
+.number {
+  margin-top: 11px;
+  padding: 7px 9px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-size: 11px;
+  margin-left: -6px;
+  margin:11px 12px 10px -6px;
+}
+
+.number:hover {
+  background-color: rgba(1, 1, 1, 0.3);
+}
+
+.share{
+  font-size: 14px;
+  padding: 0 7px;
+  margin: 9px 0 6px 0;
+  border-radius: 4px;
+  /* margin-right: 500px; */
+}
+
+/*  NOTE: SETTINGS FOR SHOW_MENU_LINK */
+#show-menu-link  {
+  font-size: 13px;
+  padding: 10px 7px;
+  /* color: rgb(255, 255, 255); */
+  margin-right: 20px;
+  border-radius: 4px;
+  float: right;
+  z-index: 2;
+  text-decoration: underline;
+  /* margin-left: 500px; */
+}
+
+.star:hover, .board-name-option:hover, .team-visible:hover, .share:hover, #show-menu-link:hover {
+  background-color: rgba(1, 1, 1, 0.3);
 }
 
 /*************** SLIDEOUT MENU STYLES ***************/
@@ -22,6 +258,8 @@ body {
   float: right;
   padding: 20px;
   margin: 0;
+  color: rgb(12,57,83);
+  z-index: 2;
   background-color: #dfe3e6;
 }
 #menu-container a, #show-menu-link a {
@@ -160,13 +398,17 @@ form.add-item-form .ellipsis{
   padding-bottom: 5px;
 }
 
-a {
+.board-wrapper a{
   text-decoration: none;
   color: rgb(131, 140, 145);
   font-size: 19px;
   vertical-align:middle;
   /* line-height:3px;  */
   text-align:center;
+}
+
+#card-options-container a{
+  text-decoration: none;
 }
 
 form#add-list-form { 
@@ -235,6 +477,7 @@ form.add-item-form {
   margin-top: 20px;
       margin-bottom: -15px;
 }
+
 
 form.add-item-form textarea {
   outline: none;

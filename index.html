@@ -6,23 +6,96 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie-edge">
+  <meta name="author" content="Joan Clarke, Lauren G, William Mooney, Vincent Tang">
+  <meta name="description" content="This is a simple clone of Trello made during Chingu Voyage 7 as part of Gecko's Team 12">
 
-  <title></title>
+  <!-- Trello icon -->
+  <link rel="shortcut icon" href="assets/trello.png" type="image/x-icon">
+  <!-- <link rel="icon" href="assets/trello.png" type="image/x-icon"> -->
+  <title>Clono</title>
 
   <!-- Link to CSS -->
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 
   <!-- Link to Font-Awesome 5 -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
 
-  <!--Link to google fonts - Roboto and Open sans (400, 400 italics, 700 bold, 700 italics)-->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Roboto" rel="stylesheet">
+  <!--Link to google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Homemade+Apple|Rock+Salt" rel="stylesheet">
 </head>
 
 <body>
-  <!-- *************** MENU *************** -->
+
+  <!-- *************** Main Container *************** -->
+  <div id="main-container">
+    <div class="nav-wrapper">
+      <!-- Top Nav -->
+      <nav class="top-nav">
+        <!-- Use flexbox -->
+        <div class="top-nav-group-1">
+          <!-- Home Icon -->
+          <div class="home-icon"><a href="#" alt="home page icon"><i class="fas fa-home"></i></a></div>
+          <!-- Board Icon -->
+          <div class="boards"><a href="#" alt="trello icon"><i class="fab fa-trello"></i>
+              <p> Boards</p>
+            </a></div>
+          <!-- Search Icon -->
+          <div class="search"><a href="#" alt="search icon"><i class="fas fa-search"></i></a></div>
+        </div>
+        <div class="top-nav-group-2">
+          <div class="logo"><a href="#" alt="trello logo"><i class="fab fa-trello"></i>
+              <p> Clono</p>
+            </a></div>
+        </div>
+        <div class="top-nav-group-3">
+          <!-- Plus Icon -->
+          <div class="plus"><a href="#" alt="plus icon"><i class="fas fa-plus"></i></a></div>
+          <!-- Information Icon -->
+          <div class="info"><a href="#" alt="Information icon"><i class="fas fa-info-circle"></i></a></div>
+          <!-- Bell Icon -->
+          <div class="bell"><a href="#" alt="bell icon"><i class="far fa-bell"></i></a></div>
+          <!-- Profile Avatar -->
+          <div class="profile"><a href="#" alt="profile icon"><i class="fas fa-user-circle"></i></a></div>
+        </div>
+      </nav><!-- end of top-nav -->
+
+      <!-- Bottom Nav -->
+      <div class="bottom-nav-menu">
+        <div class="board-title">
+          <p>Board Title</p>
+        </div>
+        <div class="star">
+          <a href="#"><i class="far fa-star"></i>
+          </a>
+        </div>
+        <span class="vl line"></span>
+        <div class="board-name-option">
+          <a href="#" alt="board name">
+            <p>Geckos-12 <span>Free</span></p>
+          </a>
+        </div>
+        <span class="vl line"></span>
+        <div class="team-visible">
+          <a href="#" alt="team visible">
+            <p><i class="fas fa-users"></i> Team Visible</p>
+          </a>
+        </div>
+        <span class="vl line"></span>
+        <div class="users">
+          <i class="fas fa-user-circle"></i>
+          <i class="fas fa-user-circle"></i>
+        </div>
+        <div class="number"> <a href="#" alt="number">2</a></div>
+        <div class="share">
+          <p>Share</p>
+        </div>
+
+
+      <!-- *************** MENU *************** -->
   <!-- Menu Link -->
   <span id="show-menu-link"><a href="#" onclick="menu.toggleMenuContainer()">Show Menu</a></span>
+
   <!-- Menu Slideout -->
   <div class="element-invisible" id="menu-container">
     <!-- Main Menu -->
@@ -68,6 +141,9 @@
       <div class="element-invisible" id="settings"></div>
     </div> <!-- menu-pages -->
   </div> <!-- menu-slideout -->
+
+  </div><!--end of bottom-nav-menu -->
+</div><!-- end of nav-wrapper -->
 
   <!-- *************** ADD LISTS *************** -->
   <!--Board Wrapper-->
