@@ -8,6 +8,16 @@
   z-index: 50;
 } */
 
+/* #sample-card {
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+  width: 20%;
+}
+#sample-pen {
+  z-index: 50;
+} */
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(12,57,83);
@@ -467,6 +477,7 @@ form.add-item-form {
   margin-top: 20px;
       margin-bottom: -15px;
 }
+
 
 form.add-item-form textarea {
   outline: none;
