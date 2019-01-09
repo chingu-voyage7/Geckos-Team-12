@@ -99,6 +99,22 @@ let menu = {
 // add new list submit eventlistener
 document.getElementById("add-list-form").addEventListener("submit", addList);
 
+// ------------DRAG AND DROP ------------ /
+var dropTarget = document.querySelector(".board-wrapper"); // for drag-and-drop
+dropTarget.addEventListener('dragover', function(ev){
+  ev.preventDefault();
+})
+dropTarget.addEventListener('drop', function(ev) {
+  ev.preventDefault();
+  let target = ev.target;
+  let droppable  = target.classList.contains('dropTarget');
+  let srcId = ev.dataTransfer.getData("srcId");
+
+  if (droppable) {
+    ev.target.appendChild(document.getElementById(srcId));
+  }
+});
+
 //Declaring index
 let listIndex = 0;
 let countCard = 0;
@@ -119,8 +135,8 @@ function addList(e) {
     <div class="list-heading" >
       <h3 contenteditable="true">` + name + `</h3>
     <div class= "ellipsis"><a href="#">&#8230;</a></div>
-    </div>
-      <div> 
+    </div class="dropTarget-wrapper">
+      <div class="dropTarget"> 
         <form class="add-item-form">
           <textarea placeholder="Enter a title for this card..."></textarea>
           <div>
@@ -156,7 +172,15 @@ document.addEventListener('submit', function (e) {
     //create card
     const cardItem = document.createElement('p');
     const card = document.createElement('div');
-    card.setAttribute('class', 'card');
+    
+    // DRAG AND DROP
+    card.setAttribute('class', 'card'); // VT - this sets class of card
+    card.setAttribute('id', Date.now()); // VT - Unique id generator needed for drag-n-drop
+    card.addEventListener("dragstart", function(ev){
+      ev.dataTransfer.setData("srcId", ev.target.id);
+    });
+    // END DRAG AND DROP
+
     //create pen icon
     const pen = document.createElement('a');
     pen.innerHTML = '<i class="fas fa-pen"></i>';

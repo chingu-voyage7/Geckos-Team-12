@@ -686,3 +686,14 @@ a#show-list-form span:nth-child(2), a.show-card-form span:nth-child(2){
 .overlay-opacity {
   opacity: 0.3;
 }
+
+
+.add-item-form > div,
+.list-heading,
+.card > p{
+  user-select: none;
+}
+.card {
+  user-select: auto;
+  z-index: 200;
+}
