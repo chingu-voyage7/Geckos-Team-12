@@ -218,13 +218,6 @@ function hideSHowForm(curr, form, link, id) {
   }
 }
 
-//removes the inputField and buttons from the document and shows the 'addAnotherCardLink' after it has been clicked.
-function removeCard(inputField) {
-  var element = document.getElementById("inputField");
-  element.parentNode.removeChild(element);
-  document.getElementById("addAnotherCardLink").style.display = "block";
-}
-
 // *************** CARD OPTIONS (small + modal) ***************
 // declare array for label colors (cardOptions.changeLabel())
 let labelArr = [];
