@@ -205,7 +205,7 @@ span.vl.line {
 }
 
 .users {
-min-width: 50px;
+min-width: 40px;
 }
 
 .fa-users {
@@ -218,7 +218,7 @@ border: 1px solid rgba(1, 1, 1, 0.2);
 color: rgba(255, 255, 255, 0.7);
 border-radius: 50%;
 margin-top: 10px;
-font-size: 25px;
+font-size: 27px;
 }
 
 .users .fa-user-circle:hover {
@@ -228,7 +228,7 @@ font-size: 25px;
 .users .fa-user-circle:nth-child(2){
   margin-left: -8px;
 }
-
+/* 
 .number {
   margin-top: 11px;
   padding: 7px 9px;
@@ -242,7 +242,7 @@ font-size: 25px;
 
 .number:hover {
   background-color: rgba(1, 1, 1, 0.3);
-}
+} */
 
 .share{
   font-size: 14px;
@@ -269,13 +269,26 @@ font-size: 25px;
 /*Medium devices (tablets, 768px and lower)*/
 /***** max-width: 768px *****/
 @media screen and (max-width: 768px){
+  div.search {
+    width: 19px;
+    text-align: right;
+  }
 
+  .fa-search {
+    margin-top: 3px;
+  }
+
+  .top-nav-group-2 {
+    margin-left: 10px;
+  }
 }
 
 /* Small devices (landscape phones, 576px and lower) */
 /***** max-width: 576px *****/
 @media screen and (max-width: 576px){
-
+    .boards a p {
+      display: none;
+    }
 }
 
 /* Small devices */
