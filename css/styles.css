@@ -23,12 +23,16 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-family: Arial, Helvetica, sans-serif;
 	color: rgb(12, 57, 83);
+  margin: 0;
 }
 
 /*************** NAV BAR ***************/
 
 .nav-wrapper {
-	margin: -8px -8px 8px -8px;
+  /* margin: -8px -8px 8px -8px; */
+  top: 0;
+  width: 100%;
+  position: fixed;
 }
 
 nav.top-nav {
@@ -571,6 +575,9 @@ form.add-item-form .ellipsis {
 	padding-bottom: 5px;
 }
 
+.board-wrapper {
+  margin-top: 90px;
+}
 .board-wrapper a {
 	text-decoration: none;
 	color: rgb(131, 140, 145);
