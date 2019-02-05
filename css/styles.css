@@ -259,7 +259,7 @@ span.vl.line {
 .users .fa-user-circle:nth-child(2) {
 	margin-left: -8px;
 }
-/* 
+/*
 .number {
   margin-top: 11px;
   padding: 7px 9px;
@@ -792,7 +792,7 @@ a.show-card-form span:nth-child(2) {
 #labels-container {
 	background-color: white;
 	width: 200px;
-	height: 200px;
+	height: 225px;
 	z-index: 100;
 	bottom: 0;
 	position: absolute;
@@ -800,9 +800,10 @@ a.show-card-form span:nth-child(2) {
 
 .label-tile {
 	display: block;
+  padding: 0px;
 	width: 180px;
 	height: 30px;
-	margin: 5px auto;
+	margin: 5px 10px;
 	border-radius: 5px;
 }
 

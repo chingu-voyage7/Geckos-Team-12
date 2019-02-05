@@ -122,7 +122,7 @@ function addList(e) {
 		`</h3>
     <div class= "ellipsis"><a href="#">&#8230;</a></div>
     </div>
-      <div> 
+      <div>
         <form class="add-item-form">
           <textarea placeholder="Enter a title for this card..."></textarea>
           <div>
@@ -232,7 +232,7 @@ let labelArr = [];
 let cardOptions = {
 	currentCard: null,
 	setCurrentCard: function(pen) {
-		this.currentCard = this.getDiv(pen.target, 'card');
+    this.currentCard = this.getDiv(pen.target, 'card');
 	},
 	getDiv: function(elem, divClass) {
 		for (; elem && elem !== document; elem = elem.parentNode) {
@@ -260,16 +260,17 @@ let cardOptions = {
 		if (!labelsContainer.classList.contains('element-invisible')) {
 			labelsContainer.classList.toggle('element-invisible');
 		}
-		// Set card options container to be flush with right edge of list
+		// Set card options & labels containers to be flush with right edge of list
 		cardOptionsContainer.style.left = listPosition.left + list.offsetWidth + 'px';
-		// Set card options container to be flush with top of card
+    labelsContainer.style.left = listPosition.left + list.offsetWidth + 'px';
+		// Set card options & labels containers to be flush with top of card or list
 		cardOptionsContainer.style.top = cardPosition.bottom - card.offsetHeight - 7 + 'px';
+    labelsContainer.style.top = listPosition.top + 'px';
 	},
 	// *************** SHOW X OPTION ***************
 	showLabels: function(event) {
 		let labelsContainer = document.getElementById('labels-container');
 		labelsContainer.classList.toggle('element-invisible');
-		// labelsContainer.style.left = event.target.getBoundingClientRect().left;
 	},
 
 	// *************** ADD MEMBER OPTION ***************
