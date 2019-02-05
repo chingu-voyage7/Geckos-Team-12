@@ -78,7 +78,8 @@ let menu = {
 		if (background.startsWith('rgb')) {
 			document.body.style.background = background;
 		} else {
-			document.body.style.background = 'url(' + background + ')';
+      document.body.style.background = 'url(' + background + ')';
+      document.body.style.backgroundAttachment = 'fixed';
 			document.body.style.backgroundSize = 'cover';
 			document.body.style.backgroundRepeat = 'no-repeat';
 		}
@@ -122,7 +123,7 @@ function addList(e) {
 		`</h3>
     <div class= "ellipsis"><a href="#">&#8230;</a></div>
     </div>
-      <div> 
+      <div>
         <form class="add-item-form">
           <textarea placeholder="Enter a title for this card..."></textarea>
           <div>
