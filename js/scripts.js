@@ -4,16 +4,30 @@ window.onload = function() {
 };
 
 function setEventListeners() {
-	document.getElementById('sample-card').addEventListener('click', (event) => {
-		cardOptions.showOverlay(event);
-	});
-	document.getElementById('sample-pen').addEventListener('click', (event) => {
-		event.stopPropagation();
-		cardOptions.showCardOptions(event);
-	});
+	document.addEventListener('click', closeMenus);
 }
 
-// setEventListeners();
+function closeMenus(event) {
+  let elements = [document.getElementById('labels-container'), document.getElementById('card-options-container')];
+  for (let i=0; i<elements.length; i++) {
+    if (!(elements[i].classList.contains('element-invisible')) && (event.target.classList.contains('label-tile') === false)) {
+      elements[i].classList.toggle('element-invisible');
+    }
+  }
+}
+
+setEventListeners();
+
+let eventCancel = function (e) {
+    if (!e)
+        if (window.event) e = window.event;
+    else return;
+    if (e.cancelBubble != null) e.cancelBubble = true;
+    if (e.stopPropagation) e.stopPropagation();
+    if (e.preventDefault) e.preventDefault();
+    if (window.event) e.returnValue = false;
+    if (e.cancel != null) e.cancel = true;
+};
 // *************** SLIDEOUT MENU SCRIPT ***************
 //Set background + background tile in menu to previous background setting
 function checkForBackground() {
@@ -78,7 +92,8 @@ let menu = {
 		if (background.startsWith('rgb')) {
 			document.body.style.background = background;
 		} else {
-			document.body.style.background = 'url(' + background + ')';
+      document.body.style.background = 'url(' + background + ')';
+      document.body.style.backgroundAttachment = 'fixed';
 			document.body.style.backgroundSize = 'cover';
 			document.body.style.backgroundRepeat = 'no-repeat';
 		}
@@ -122,7 +137,7 @@ function addList(e) {
 		`</h3>
     <div class= "ellipsis"><a href="#">&#8230;</a></div>
     </div>
-      <div> 
+      <div>
         <form class="add-item-form">
           <textarea placeholder="Enter a title for this card..."></textarea>
           <div>
@@ -165,7 +180,7 @@ document.addEventListener('submit', function(e) {
 		card.setAttribute('class', 'card');
 		//create pen icon
 		const pen = document.createElement('a');
-		pen.innerHTML = '<i class="fas fa-pen"></i>';
+		pen.innerHTML = '<i class="fas fa-pen ignore-close"></i>';
 		pen.addEventListener('click', function(event) {
 			cardOptions.setCurrentCard(event);
 			cardOptions.showCardOptions(event);
@@ -231,8 +246,8 @@ function hideSHowForm(curr, form, link, id) {
 let labelArr = [];
 let cardOptions = {
 	currentCard: null,
-	setCurrentCard: function(pen) {
-		this.currentCard = this.getDiv(pen.target, 'card');
+	setCurrentCard: function(el) {
+    this.currentCard = this.getDiv(el.target, 'card');
 	},
 	getDiv: function(elem, divClass) {
 		for (; elem && elem !== document; elem = elem.parentNode) {
@@ -247,7 +262,7 @@ let cardOptions = {
 		document.body.classList.add('ovleray-opacity');
 	},
 	showCardOptions: function(event) {
-		let target = event.target;
+    let target = event.target;
 		// Get parent elements with 'list' and 'card' class names
 		let list = cardOptions.getDiv(target, 'list');
 		let card = cardOptions.getDiv(target, 'card');
@@ -260,16 +275,19 @@ let cardOptions = {
 		if (!labelsContainer.classList.contains('element-invisible')) {
 			labelsContainer.classList.toggle('element-invisible');
 		}
-		// Set card options container to be flush with right edge of list
+		// Set card options & labels containers to be flush with right edge of list
 		cardOptionsContainer.style.left = listPosition.left + list.offsetWidth + 'px';
-		// Set card options container to be flush with top of card
+    labelsContainer.style.left = listPosition.left + list.offsetWidth + 'px';
+		// Set card options & labels containers to be flush with top of card or list
 		cardOptionsContainer.style.top = cardPosition.bottom - card.offsetHeight - 7 + 'px';
+    labelsContainer.style.top = listPosition.top + 'px';
+    return eventCancel(event);
 	},
 	// *************** SHOW X OPTION ***************
 	showLabels: function(event) {
-		let labelsContainer = document.getElementById('labels-container');
+    let labelsContainer = document.getElementById('labels-container');
 		labelsContainer.classList.toggle('element-invisible');
-		// labelsContainer.style.left = event.target.getBoundingClientRect().left;
+    return eventCancel(event);
 	},
 
 	// *************** ADD MEMBER OPTION ***************
