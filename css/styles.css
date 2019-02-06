@@ -278,109 +278,6 @@ span.vl.line {
 	background-color: rgba(1, 1, 1, 0.3);
 }
 
-/*************** NAV BAR (MEDIA QUERIES) ***************/
-
-/* Extra large devices (large desktops, 1200px and lower) */
-@media screen and (max-width: 1200px) {
-	.share {
-		margin-right: 240px;
-	}
-}
-
-/* Large devices (desktops, 992px and lower) */
-@media screen and (max-width: 992px) {
-	.share {
-		margin-right: 50px;
-	}
-}
-
-/*Medium devices (tablets, 768px and lower)*/
-@media screen and (max-width: 768px) {
-	div.search {
-		width: 19px;
-		text-align: right;
-	}
-
-	.fa-search {
-		margin-top: 3px;
-	}
-
-	.top-nav-group-2 {
-		margin-left: 10px;
-	}
-
-	div.bottom-nav-menu {
-		display: flex;
-		flex-direction: column;
-		height: 80px;
-	}
-
-	div.bottom-nav-menu .bottom-nav-section-1,
-	div.bottom-nav-menu .bottom-nav-section-2 {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-	}
-	.div.bottom-nav-menu .bottom-nav-section-1 {
-		width: 100%;
-	}
-
-	.div.bottom-nav-menu .bottom-nav-section-2 {
-		width: 100%;
-	}
-
-	.users {
-		margin-left: 20px;
-	}
-
-	.share {
-		margin-right: 296px;
-	}
-}
-
-/* Small devices (landscape phones, 576px and lower) */
-@media screen and (max-width: 576px) {
-	.boards a p {
-		display: none;
-	}
-
-	.share {
-		margin-right: 90px;
-	}
-}
-
-/* Small devices */
-@media screen and (min-width: 375px) and (max-width: 470px) {
-	div.bottom-nav-menu .bottom-nav-section-1,
-	div.bottom-nav-menu .bottom-nav-section-2 {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-	}
-
-	.bottom-nav-section-1 {
-		padding-left: 50px;
-	}
-
-	.share {
-		margin-right: -40px;
-	}
-
-	.board-title {
-		font-size: 16px;
-	}
-	.board-title {
-		margin-right: -10px;
-		margin-left: -10px;
-	}
-
-	.board-name-option,
-	.team-visible {
-		font-size: 12px;
-		margin-left: -15px;
-	}
-}
-
 /*************** SLIDEOUT MENU STYLES ***************/
 #menu-container {
 	height: 600px;
@@ -558,6 +455,7 @@ form.add-item-form .ellipsis {
 .board-wrapper {
   margin-top: 90px;
 }
+
 .board-wrapper a {
 	text-decoration: none;
 	color: rgb(131, 140, 145);
@@ -818,3 +716,111 @@ a.show-card-form span:nth-child(2) {
 .overlay-opacity {
 	opacity: 0.3;
 }
+
+/*************** NAV BAR (MEDIA QUERIES) ***************/
+
+/* Extra large devices (large desktops, 1200px and lower) */
+@media screen and (max-width: 1200px) {
+	.share {
+		margin-right: 240px;
+	}
+}
+
+/* Large devices (desktops, 992px and lower) */
+@media screen and (max-width: 992px) {
+	.share {
+		margin-right: 50px;
+	}
+}
+
+/*Medium devices (tablets, 768px and lower)*/
+@media screen and (max-width: 768px) {
+	div.search {
+		width: 19px;
+		text-align: right;
+	}
+
+	.fa-search {
+		margin-top: 3px;
+	}
+
+	.top-nav-group-2 {
+		margin-left: 10px;
+	}
+
+	div.bottom-nav-menu {
+		display: flex;
+		flex-direction: column;
+		height: 80px;
+	}
+
+	div.bottom-nav-menu .bottom-nav-section-1,
+	div.bottom-nav-menu .bottom-nav-section-2 {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	.div.bottom-nav-menu .bottom-nav-section-1 {
+		width: 100%;
+	}
+
+	.div.bottom-nav-menu .bottom-nav-section-2 {
+		width: 100%;
+	}
+
+	.users {
+		margin-left: 20px;
+	}
+
+	.share {
+		margin-right: 296px;
+	}
+
+	.board-wrapper {
+		margin-top: 130px;
+	}
+}
+
+/* Small devices (landscape phones, 576px and lower) */
+@media screen and (max-width: 576px) {
+	.boards a p {
+		display: none;
+	}
+
+	.share {
+		margin-right: 90px;
+	}
+}
+
+/* Small devices */
+@media screen and (min-width: 375px) and (max-width: 470px) {
+	div.bottom-nav-menu .bottom-nav-section-1,
+	div.bottom-nav-menu .bottom-nav-section-2 {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	.bottom-nav-section-1 {
+		padding-left: 50px;
+	}
+
+	.share {
+		margin-right: -40px;
+	}
+
+	.board-title {
+		font-size: 16px;
+	}
+	.board-title {
+		margin-right: -10px;
+		margin-left: -10px;
+	}
+
+	.board-name-option,
+	.team-visible {
+		font-size: 12px;
+		margin-left: -15px;
+	}
+}
+
