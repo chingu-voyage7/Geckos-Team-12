@@ -295,10 +295,8 @@ let cardOptions = {
 	changeLabel: function(event, labelColor) {
 		// NEXT STEP: Must access each unique card with a unique ID. Then, can set an individual labelArr for each card.
 		let card = this.currentCard;
-    console.log("Card: " + card.innerHTML);
 		//check if color is already displayed (i.e. in the array)
 		let currentLabels = card.getElementsByClassName('card-label-tile');
-    console.log("currentLabels: " + currentLabels.styles[0]);
 		if (labelColor in currentLabels) {
 			card.removeChild(document.getElementById(labelColor));
 			// labelArr.splice(this.card.labelArr.indexOf(labelColor),1);
