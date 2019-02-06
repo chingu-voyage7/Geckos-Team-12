@@ -10,7 +10,7 @@ function setEventListeners() {
 function closeMenus(event) {
   let elements = [document.getElementById('labels-container'), document.getElementById('card-options-container')];
   for (let i=0; i<elements.length; i++) {
-    if (!(elements[i].classList.contains('element-invisible'))) {
+    if (!(elements[i].classList.contains('element-invisible')) && (event.target.classList.contains('label-tile') === false)) {
       elements[i].classList.toggle('element-invisible');
     }
   }
@@ -245,8 +245,8 @@ function hideSHowForm(curr, form, link, id) {
 let labelArr = [];
 let cardOptions = {
 	currentCard: null,
-	setCurrentCard: function(pen) {
-    this.currentCard = this.getDiv(pen.target, 'card');
+	setCurrentCard: function(el) {
+    this.currentCard = this.getDiv(el.target, 'card');
 	},
 	getDiv: function(elem, divClass) {
 		for (; elem && elem !== document; elem = elem.parentNode) {
@@ -294,10 +294,10 @@ let cardOptions = {
 	changeLabel: function(event, labelColor) {
 		// NEXT STEP: Must access each unique card with a unique ID. Then, can set an individual labelArr for each card.
 		let card = this.currentCard;
-    console.log("Card: " + card);
+    console.log("Card: " + card.innerHTML);
 		//check if color is already displayed (i.e. in the array)
 		let currentLabels = card.getElementsByClassName('card-label-tile');
-    console.log("currentLabels: " + currentLabels.item(0));
+    console.log("currentLabels: " + currentLabels.styles[0]);
 		if (labelColor in currentLabels) {
 			card.removeChild(document.getElementById(labelColor));
 			// labelArr.splice(this.card.labelArr.indexOf(labelColor),1);
@@ -310,7 +310,6 @@ let cardOptions = {
 			label.style.backgroundColor = labelColor;
 			// add new element (color label) to card
 			card.appendChild(label);
-      console.log("label added. currentLabels now: " + currentLabels);
 		}
 	},
 
