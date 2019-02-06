@@ -4,16 +4,30 @@ window.onload = function() {
 };
 
 function setEventListeners() {
-	document.getElementById('sample-card').addEventListener('click', (event) => {
-		cardOptions.showOverlay(event);
-	});
-	document.getElementById('sample-pen').addEventListener('click', (event) => {
-		event.stopPropagation();
-		cardOptions.showCardOptions(event);
-	});
+	document.addEventListener('click', closeMenus);
 }
 
-// setEventListeners();
+function closeMenus(event) {
+  let elements = [document.getElementById('labels-container'), document.getElementById('card-options-container')];
+  for (let i=0; i<elements.length; i++) {
+    if (!(elements[i].classList.contains('element-invisible'))) {
+      elements[i].classList.toggle('element-invisible');
+    }
+  }
+}
+
+setEventListeners();
+
+let eventCancel = function (e) {
+    if (!e)
+        if (window.event) e = window.event;
+    else return;
+    if (e.cancelBubble != null) e.cancelBubble = true;
+    if (e.stopPropagation) e.stopPropagation();
+    if (e.preventDefault) e.preventDefault();
+    if (window.event) e.returnValue = false;
+    if (e.cancel != null) e.cancel = true;
+};
 // *************** SLIDEOUT MENU SCRIPT ***************
 //Set background + background tile in menu to previous background setting
 function checkForBackground() {
@@ -166,7 +180,7 @@ document.addEventListener('submit', function(e) {
 		card.setAttribute('class', 'card');
 		//create pen icon
 		const pen = document.createElement('a');
-		pen.innerHTML = '<i class="fas fa-pen"></i>';
+		pen.innerHTML = '<i class="fas fa-pen ignore-close"></i>';
 		pen.addEventListener('click', function(event) {
 			cardOptions.setCurrentCard(event);
 			cardOptions.showCardOptions(event);
@@ -248,7 +262,7 @@ let cardOptions = {
 		document.body.classList.add('ovleray-opacity');
 	},
 	showCardOptions: function(event) {
-		let target = event.target;
+    let target = event.target;
 		// Get parent elements with 'list' and 'card' class names
 		let list = cardOptions.getDiv(target, 'list');
 		let card = cardOptions.getDiv(target, 'card');
@@ -267,11 +281,13 @@ let cardOptions = {
 		// Set card options & labels containers to be flush with top of card or list
 		cardOptionsContainer.style.top = cardPosition.bottom - card.offsetHeight - 7 + 'px';
     labelsContainer.style.top = listPosition.top + 'px';
+    return eventCancel(event);
 	},
 	// *************** SHOW X OPTION ***************
 	showLabels: function(event) {
-		let labelsContainer = document.getElementById('labels-container');
+    let labelsContainer = document.getElementById('labels-container');
 		labelsContainer.classList.toggle('element-invisible');
+    return eventCancel(event);
 	},
 
 	// *************** ADD MEMBER OPTION ***************
@@ -279,8 +295,10 @@ let cardOptions = {
 	changeLabel: function(event, labelColor) {
 		// NEXT STEP: Must access each unique card with a unique ID. Then, can set an individual labelArr for each card.
 		let card = this.currentCard;
+    console.log("Card: " + card);
 		//check if color is already displayed (i.e. in the array)
 		let currentLabels = card.getElementsByClassName('card-label-tile');
+    console.log("currentLabels: " + currentLabels.item(0));
 		if (labelColor in currentLabels) {
 			card.removeChild(document.getElementById(labelColor));
 			// labelArr.splice(this.card.labelArr.indexOf(labelColor),1);
@@ -293,6 +311,7 @@ let cardOptions = {
 			label.style.backgroundColor = labelColor;
 			// add new element (color label) to card
 			card.appendChild(label);
+      console.log("label added. currentLabels now: " + currentLabels);
 		}
 	},
 
